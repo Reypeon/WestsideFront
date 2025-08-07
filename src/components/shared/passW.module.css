@@ -1,0 +1,32 @@
+.passwordScreen {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.passwordForm {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+}
+
+.passwordForm input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.passwordForm button {
+  padding: 0.5rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

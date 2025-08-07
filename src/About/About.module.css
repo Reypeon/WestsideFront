@@ -1,0 +1,179 @@
+/* About.module.css */
+.aboutContainer {
+  background-color: var(--negro);
+  width: 100%;
+  display: flex;
+  position: relative;
+  bottom: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index:2;
+  overflow: hidden;
+  margin-top: auto;
+
+}
+
+.contentUlabout{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Está bien para alinearlos a la izquierda */
+  align-items: flex-start; 
+  padding-bottom: 2rem;
+  border-bottom: solid 1px #333;
+  margin-bottom: 4vh;  background-color: var(--negro);
+  width: 100%;
+  gap: 2rem;
+
+}
+.contentUlabout .ulAbout{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 8rem;
+    width: 100%;
+align-items: center;
+}
+.ulAbout .li{
+  flex-direction: flex-start;
+  text-align: center;
+  margin: 0;
+  font-size: clamp(1.7vh, 1vw, 1.9vh);
+  cursor: pointer;
+  color: var(--blanco);
+  font-family: var(--font1);
+  font-weight: 500;
+    width: 100%;
+
+
+}
+.ulAbout li a {
+  display: block;
+  color: inherit; /* Hereda el color del li */
+  width: 100%;
+  text-align: start;
+  padding: 0.5rem 0;
+}
+.ulAbout p{
+  color: aliceblue;
+  font-size: clamp(1.8vh, 1vw, 1.9vh);
+  font-family: var(--font1);
+   width: 100%;
+
+
+}
+
+.contentUlabout .boxLogoAbout{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 0;
+  height: 20vh;
+  min-width: 15vh;
+  max-width:48vh;
+  align-items: center;
+}
+.logoAbout{
+  margin: 0;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/*STLOS PARA LAS TARJETAS*/
+
+.contenedorHeader {
+  display: flex;
+  padding-top: 1rem;
+  align-items: flex-start;
+  margin: 0;
+  gap: 1rem;
+  flex-direction: row;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  border-bottom: solid 1px #333;
+  
+}
+/*BOX TAJETA DE CREDITOS*/
+.tarjetasContC{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.h2Tarjetas{
+  display: flex;
+  color: var(--blanco);
+  font-family: var(--font1);
+  font-size:medium;
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  min-height: 2rem;
+  max-height: 2rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.9vh, 2vw, 2.5vh);
+  border-bottom: 1px solid #333;
+}
+
+/*BOX TAJETA DE DEVITO Y EFECTIVO*/
+.boxDebitoYcash {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 1rem;
+}
+.boxDebitoYcash .tarjetasContED{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.boxDebitoYcash .tarjetasContE{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;     
+  gap: 0.5rem;  
+  min-height: 2em;
+  height: auto;
+}
+
+/*EL METODO ES EL CUADRITO DONDE ESTA EL LOGO Y NOMBRE DE LA TARJETA*/
+.metodo {
+  display: flex;
+  font-family: var(--font1);
+  min-height: 2rem;
+  max-height: 2rem;
+  align-items: center;
+  align-self: center;
+  gap: 1.5rem;
+  justify-content: center;
+  color: var(--blanco);
+  text-align: start;
+   white-space: wrap;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+.metodo img {
+  max-width: clamp(2rem, 2vw, 2rem);
+  min-height: 1.5rem; 
+  image-rendering: auto;
+}
+
+/*Fin tarjetas stiles*/

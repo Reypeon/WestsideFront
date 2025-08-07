@@ -1,0 +1,61 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  z-index: 11;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  margin: 1rem 0;
+  padding: 2rem;
+
+}
+
+.searchInput {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  padding-left: 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+    font-weight: 500;
+  font-size: 1rem;
+  z-index: 1;
+}
+.h1search{
+  width: 100%;
+  color: var(--negro);
+  background-color: var(--blanco);
+  font-weight: 500;
+  height: 1.8rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+    border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.cardSearch{
+    display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  gap: 0.5rem;
+  background-color: transparent;
+  width: 100%;
+  margin: 0;  
+  height: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: transparent;
+  z-index: 12;
+  /* Ocultar scrollbar nativo */
+  -ms-overflow-style: none;
+  /* IE y Edge */
+  scroll-behavior: smooth;
+
+  /* Ayuda con temblores */
+  -webkit-overflow-scrolling: touch;
+}
+.cardSearch>* {
+  min-width: 13rem;
+  min-height: 18.5rem;
+  height: 45vh;
+}

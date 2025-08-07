@@ -1,0 +1,196 @@
+.containerLinks {
+  display: flex;
+  /* Asegura que los elementos hijos estén distribuidos a los extremos */
+  align-items: flex-end;
+  position: fixed;
+  height: 72px; /* equivalente a 4.5rem si 1rem = 16px */
+  min-height: 72px;
+  max-height: 72px;
+  width: 100%;
+  padding: 0.2rem;
+  margin: 0;
+  z-index: 20;
+  overflow: visible;
+  font-family: var(--font1);
+  transition: all 900ms;
+  /* bottom: 0;
+  margin-top: auto; */
+  backdrop-filter: blur(10px);
+  background-color: var(--colorfilterdos);
+
+}
+
+.spanNav{
+  transform: translate(100%);
+  position: absolute;
+  width: 100%;
+  height: 1rem;
+  top: 0;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  font-variant-numeric: lining-nums;
+  color: var(--colorlimon);
+  white-space: nowrap; /* Evita que el texto se rompa */
+  animation: moveText 5s linear infinite; 
+}
+ @keyframes moveText {
+  0% {
+    transform: translateX(100%); /* Comienza a la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Termina a la izquierda */
+  }
+} 
+/* Lista de navegación */
+.navLinks {
+  display: flex;
+  position: relative; 
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  gap: 1rem;
+  min-height: 3rem;
+  margin: 0;
+  width: 100%;
+  transition: all 900ms;
+  flex-direction: row;
+}
+
+
+/* Estilo de los elementos de navegación */
+.navLinks .contentBtnNav{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 0.5rem;
+  left: -0.5rem;
+  min-width: 20%;
+  max-width: 26%;
+  min-height: 2.5rem;
+  max-height: 2.5rem;
+  margin: 0;
+  
+}
+.btnNav {
+  height: 2rem;
+  width: 6.8rem;
+  margin: 0 ;
+  align-self: center;
+  background: transparent;
+  color: var(--blanco);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex; /* Habilita Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  border: none;
+  text-align: center;
+  outline: 1px solid var(--blanco);
+  font-weight: 400;
+  font-size : clamp(0.9rem, 1vh, 1rem);
+  padding: 2px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.ocultarMobile {
+  display: flex;
+}
+
+/* Contenedor de botones, carrito , logo y quisa mg*/
+.boxrigthNAV{
+  display: flex;
+  justify-content: end;
+  padding-right: 1rem;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0;
+}
+.logoNav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--negro);
+  height: 100%;
+  margin: 0;
+  background-color: transparent;
+  z-index: 30; /* Para que esté encima si hay solapamientos */
+  cursor: pointer;
+}
+
+/* Estilo de los botones */
+.lupa {
+  display: flex;
+  min-width: 3rem;
+  max-width: 10%;
+  min-height: 2rem;
+  max-height: 2rem;
+  border-radius: 5px;
+  margin: 0;
+  background: rgb(254, 254, 254);
+  outline: 0px solid rgba(255, 255, 255, 0.5);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.buttonboxcart {
+  display: flex;
+  position: relative;
+  right: -0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 4vh;
+  height: 2rem;
+  min-width: 6vh;
+  width: 4rem;
+  border-radius: 5px;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+  outline: 1px solid var(--blanco);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.buttonboxcart .cartButton{
+  min-width: 100%;
+  font-size: 4vh;
+}
+.buttonboxcart:hover, .btnNav:hover {
+  border: 0px solid;
+  outline-offset: 13px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  outline-color: rgba(247, 10, 10, 0);
+  }
+
+
+/* Media Queries para diseño responsive */
+@media (max-width: 637px) {
+  .ocultarMobile {
+    display: none; /* o inline-flex si querés que se comporte como un botón */
+  }
+}
+
+@media (min-width: 637px) {
+
+.spanNav{
+    animation: moveText 15s linear infinite; 
+}
+}
+
+
+.dottedText {
+  font-weight: 900;
+  font-size: 4rem;
+  color: #222;
+  -webkit-mask-image: radial-gradient(circle 2px, black 100%, transparent 100%);
+  mask-image: radial-gradient(circle 2px, black 100%, transparent 100%);
+  mask-size: 10px 10px;
+  -webkit-mask-size: 10px 10px;
+  mask-repeat: repeat;
+  -webkit-mask-repeat: repeat;
+}

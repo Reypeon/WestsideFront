@@ -1,0 +1,57 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  z-index: 2;
+  transform: translateY(10vh);
+  font-family: var(--font1);
+  margin-bottom: 10vh;
+}
+
+.quienesSomos, .contacto {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.titulo {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input, .textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.boton {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #0056b3;
+}

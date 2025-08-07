@@ -1,0 +1,806 @@
+/* Contrasena */
+.passwordScreen {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+  color: white;
+}
+
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30rem;
+  padding: 2rem;
+  background: #111;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.passwordForm .input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.passwordForm .button {
+  padding: 0.5rem;
+  background: #4CAF50;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+
+/*contenedor de todo eh=l Home*/
+.maincontent {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: var(--font1);
+  background-color: transparent;
+}
+
+.polygon {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 150vh;
+  height: 150svh;
+  position: relative;
+  align-items: center;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  background-color:transparent;
+}
+.polygon .h1title {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 1% 0 2%;
+  width: 100%;
+  height: 45%;
+  background-color: transparent;
+  z-index: 10;
+  margin: 0;
+  font-family: 'MiFuentePersonalizada3';
+}
+.h1title .titleForti {
+  text-align: center;
+  align-self: center;
+  height: auto;
+  margin: 0;
+  min-width: 2rem;
+  max-width: 10rem;
+  font-size: 5vh;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  animation: focusIn 2.4s ease-out forwards;
+  animation-delay: var(--animation-delay);
+  filter: blur(10px);
+  background-size: cover;
+  background-clip: text;
+  color: var(--blanco);
+  -webkit-background-clip: text;
+
+}
+.topsubtitle{
+  display: flex;
+  min-height: 28vh;
+  max-height: 28vh;
+  width: 100%;
+  margin: 0;
+}
+.polygon .subtitle {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 10px;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  height: 3rem;
+  font-weight: 700;
+  margin-bottom: 7vh;
+  font-size: 2vh;
+  letter-spacing: 2px;
+  font-style: italic;
+  text-align: center;
+  color: var(--blanco);
+}
+.cajaBlur .h1title .titleForti:nth-child(3),
+.titleForti:nth-child(4),
+.titleForti:nth-child(5) {
+  color: var(--colorv1);
+}
+@keyframes focusIn {
+  0% {
+    filter: blur(15px);
+    opacity: 0;
+    /* Opcional, para un efecto más suave */
+  }
+
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+
+  }
+}
+
+/*contenedor segunda seccion de blur osea abajo del titulo*/
+.dControll {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  z-index: 11;
+  gap: 0.2rem;
+  padding-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.leftText {
+  display: flex;
+  position: relative;
+  margin: 0;
+  min-width: 100%;
+  min-height: 52vh;
+  max-height: 52%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column ;
+  background-color: var(--colorlimon);
+  border-radius: 2pc;
+  font-size: 26px;
+  overflow: hidden;
+  line-height: 1.5;
+    backdrop-filter: blur(5px);
+  /* background-color: rgb(19, 19, 19, 0.7); */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+}
+.LeftT {
+  display: flex;
+    font-family: "MiFuentePersonalizada3";
+  font-size: clamp(1rem, 2vw, 2.8vh);
+  line-height: 1.5;
+  text-align: center;  
+  align-items: center;
+  justify-content: center;
+  color: var(--negro);
+  margin-top: 1%;
+  width: 100%;
+  padding: 0.5rem;
+  letter-spacing: 2px;
+}
+.leftBeneficios {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: left;  
+  height: 100%;
+  width: 100%;
+  padding-left: 2%;
+}
+.leftBeneficios li{
+    display: flex;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+   flex-shrink: 0;
+   font-weight: 900;
+   color: var(--negro);
+     line-height: 1.1;
+
+}
+.leftBeneficios li:nth-child(1) {
+   font-size: clamp(2vh, 7vh ,7vh);
+   font-weight: 900;
+  width: 100%;
+}
+
+.leftBeneficios li:nth-child(2) {
+  justify-content: flex-start;
+  font-size: 3.5vh;
+  line-height: 0.5;
+  overflow: visible;
+  margin-bottom: 0.8rem;
+
+}
+.leftBeneficios li:nth-child(3) {
+  padding-left: 2%;
+  margin: 0;
+  max-width: 30%;
+  min-width: 13rem;
+  background-color: var(--negro);
+  color: var(--blanco);
+   font-size: 5vh;
+   font-weight: 900;
+  line-height: 1.4;
+  }
+.leftBeneficios li:nth-child(4) {
+  font-size: 2.5vh;
+  width: 100%;
+  font-weight: 700;
+  left: 1%;
+}
+.leftBeneficios li:nth-child(5) {
+  display: flex;
+  font-size: clamp(2vh, 5vh, 5vh);
+  font-weight: 900;
+  width: 100%;
+  margin: 0.2rem 0 0 0;
+  line-height: 0.8;
+}
+.leftBeneficios li:nth-child(6) {
+  font-size: 2.5vh;
+  width: 100%;
+  font-weight: 700;
+  left: 1%;
+}
+.leftBeneficios li:nth-child(7) {
+  width: 100%;
+    flex: 1;
+  }
+.spanleftBeneficios{
+  display: flex;
+  position: relative;
+  font-weight: 700;
+  min-width: 10rem;
+  height: 3rem;
+  font-size: 2.2vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--negro);
+  background-color: var(--blanco);
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  transition: all 0.5s ease;
+    letter-spacing: 1px;
+} 
+
+/*DERECHA DONDE ESTA EL 3D*/
+.rightModel .title3d {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--colorlimon);
+  margin-top: 0.5rem;
+  min-width: 100%;
+  top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: clamp(0.8rem, 2vw, 2.8vh);
+  line-height: 1.5;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: "MiFuentePersonalizada3";
+}
+ .rightModel {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 62vh;
+  max-height: 62%; */
+min-width: 100%;
+  background-color: rgb(19, 19, 19, 0.2);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  left: 0;
+  border-radius: 2pc;
+      /* clip-path: polygbon(2% 0%, 100% 0%,
+     100% 100%, 
+     71% 100%, 61% 87%, 2% 87%); */
+  justify-content: flex-start;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+
+}
+.rightModel:hover {
+  background-color: rgb(19, 19, 19, 0.6);
+  transform: scale(95%);
+  box-shadow: 0px 0px 30px 1px rgba(224, 224, 224, 0.942);
+
+}
+.glbModel{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  width: 100%;
+  height: 50vh;
+  padding-top: 8vh;
+}
+.rightModel a{
+  width: 100%;
+}
+
+/* contenedor segunda seccion: CATEGORIAS:*/
+
+.back3dScroll {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  margin: 0;
+  /* top: -4.5vh; */
+  padding-top: 5rem;
+  z-index: 12;
+  min-height: auto;
+  background-color: transparent;
+  /* clip-path: polygon(0 0, 30% 0, 
+  36% 2%, 100% 2%, 100% 100%, 0 100%); */
+  /* background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 25%,
+    transparent 100%
+  ); */
+}
+
+
+.sectionCategoris {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  /* background: linear-gradient(0deg, rgba(39,1,83,1) 0%, rgba(0,0,0,1) 67%); */
+background: linear-gradient(
+  to bottom,
+  transparent 0%,        
+  rgba(39, 1, 83, 0.5) 25%,  
+    rgba(39, 1, 83, 0.5) 70%,    
+  rgba(39, 1, 83, 0) 100%      
+);
+  width: 100%;
+  z-index: 12;
+  overflow: hidden;
+transition: opacity 0.7s ease, transform 0.7s ease;
+
+}
+.sectionCategoris .h4Categori {
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  text-align: center;
+  color: var(--blanco);
+  margin: 0 0 2% 0;
+  padding-bottom: 1%;
+  width: 90%;
+  border-bottom: 3px solid var(--blanco);
+  font-size: clamp(4.2vh, 1vw, 5vh);
+  font-weight: 500;  
+
+}
+.sectionCategoris .scrollFto {
+  display: flex;
+  margin: 0;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Ayuda con temblores */
+  -webkit-overflow-scrolling: touch;
+  padding-top: 1rem;
+  background: transparent;
+    z-index: 12;
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;  
+  scroll-behavior: smooth;
+}
+.scrollContent::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
+.boxBtnScrolluno{
+  display: flex;
+  position: relative;
+  height: 4rem;
+  margin:1rem 0;
+  width: 100%;
+  z-index: 4;
+}
+.scrollButton, .scrollButtonDos{
+  position: absolute;
+  background: transparent;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  margin: 0 0 0 20%;
+  padding: 0;
+  z-index: 4;
+  user-select: none;
+  transition: scale 0.2s ease-in-out;
+
+}
+.scrollButtonDos{
+  right: 20%;
+}
+.scrollButton:hover, .scrollButtonDos:hover{
+ scale: 1.1;
+  
+}
+/* botones de categorias */
+.acordeon {
+  list-style: none;
+  position: relative;
+  min-width: 12rem;
+  width: 10%;
+  min-height: 9rem;
+  height: 22vh;
+  padding: 5px 5px 0 5px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-shadow: none;
+    border: none;
+    margin-left: 1rem;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.349);
+    background-color: var(--negro);
+      transition: scale 0.2s, background-color 0.2s ease-in-out;
+
+  }
+.acordeon:hover{
+    background-color: var(--negro);
+   scale: 95%;
+
+}
+.acordeon .icon {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  height: 70%;
+  font-size:15rem;
+  width: 100%;
+}
+.acordeon .name {
+  display: flex;
+  color: var(--blanco);
+  text-align: center;
+  justify-content: center;
+  align-items: end;
+  height: 20%;
+  line-height: 1;
+  background: transparent;
+  font-size: clamp(2.3vh, 2vw, 2.3vh);
+}
+/* fin de categorias */
+
+ .model3d{
+  display: flex;
+  height: 80vh;
+  position: relative;
+transition: opacity 0.7s ease, transform 0.7s ease;
+  margin: 0;
+    touch-action: pan-y;      /* Permite scroll vertical */
+  overscroll-behavior: contain; /* Opcional: evita que el scroll salte fuera del contenedor */
+}
+.btnTienda {
+  display: flex;
+  min-width: 65%;
+  max-width: 65%;
+  height: 3rem;
+  clip-path: polygon(100% 0, 0 0, 0 100%, 92% 100%, 100% 0);
+  position: relative;
+  z-index: 10;
+  transform: translateY(2.5rem);
+  background-color: var(--blanco);
+  color: var(--negro);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  margin: 0 0 0 0.5rem;
+  font-weight: 700;
+  font-size: clamp(2.5vh, 2vh, 3vh);
+  letter-spacing: 1px;
+  line-height: 1.5;
+  transition: all 0.5s ease;
+
+}
+
+.btnTienda:hover, .spanleftBeneficios:hover{
+  letter-spacing: 3px;
+  background-color: var(--colorlimon);
+  color: var(--negro);
+}
+
+
+
+
+
+
+
+/*LO MAS DESTACAODS */
+.maincontent .sectionDestacados {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* Mejora la experiencia táctil en dispositivos móviles */
+ clip-path: polygon(
+  100% 0,      
+  70% 0,        
+  64% 10%,      
+  0 10%,        
+  0 100%,      
+  100% 100%     
+);
+  background: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 1) 20%,          
+  rgba(39, 1, 83, 0.7) 70%,     
+  rgba(39, 1, 83, 0) 100%      
+
+);
+      z-index: 2; 
+transition: opacity 0.7s ease, transform 0.7s ease;
+
+}
+.sectionDestacados .titleD {
+  color: var(--blanco);
+  display: flex;
+  width: 90%;
+  text-align: start;
+  justify-content: start;
+  align-items: end;
+  border-bottom: 3px solid var(--blanco);
+  font-size: clamp(4vh, 1vw, 4vh);
+  overflow: hidden;
+  font-weight: 500;
+  z-index: 1;
+  padding-bottom: 2%;
+  padding-top: 5rem;
+  margin: 2rem 0 1rem 1rem;
+  line-height: 1;
+}
+.scrollD{
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+    will-change: transform;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.destacados {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  gap: 0.5rem;
+  background-color: transparent;
+  width: 100%;
+  margin: 0;  
+  height: auto;
+  padding: 1rem;
+  background: transparent;
+  z-index: 12;
+  /* Ocultar scrollbar nativo */
+  -ms-overflow-style: none;
+  /* IE y Edge */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  /* Ayuda con temblores */
+  -webkit-overflow-scrolling: touch;
+
+}
+ .destacados::-webkit-scrollbar {
+  display: none;               /* Chrome/Safari */
+}
+
+.destacados>* {
+  min-width: 13rem;
+  height: 45vh;
+}
+.boxBtnScroll{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  padding: 0 ;
+}
+/* FIN LO MAS DESTACAODS */
+
+
+
+/* seccion de envios */
+.maincontent .sectionEnvios {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  white-space: nowrap;
+  width: 100%;
+  padding: 2%;
+  z-index: 2;
+  margin: 0;
+    /* Ocultar scrollbar nativo */
+  -ms-overflow-style: none;
+  /* IE y Edge */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  /* Ayuda con temblores */
+  -webkit-overflow-scrolling: touch;
+
+}
+
+.boxPoliticas {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  margin: 0;
+  width: 100%;
+  color: #333;
+  overflow: hidden;
+  gap: 0.5rem;
+    -ms-overflow-style: none;
+
+  /* transition: opacity 0.7s ease, transform 0.7s ease; */
+  scroll-snap-type: x mandatory;
+  /* Ayuda con temblores */
+  -webkit-overflow-scrolling: touch;
+    /* IE y Edge */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.carBoxPOLITICAS {
+  position: static;
+  background-color: #333;
+  padding: 1.5rem;
+  min-height: 50vh;
+  width: 100%;
+  height: auto;
+  border-radius: 2pc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.title {
+  font-size: 2rem;
+  font-size: clamp(2.5vh, 1vh, 3vh);
+  margin: 1rem 0 1rem 0;
+  text-align: center;
+  color:var(--blanco);
+}
+.BorderLeft{
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 3px solid var(--colorv1);
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  white-space: normal;
+    color:var(--blanco);
+
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  white-space: wrap;
+  /* text-indent: 1em; */
+  max-width: 100%;  color:var(--blanco);
+  margin: 0;
+}
+.PoliticassubT {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color:var(--colorv1);
+  white-space: normal;
+
+}
+
+.importante {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #242321;
+  border-left: 4px solid var(--colorlimon);
+  font-weight: 500;
+}
+
+.pasosPedido {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+  list-style-type: decimal;
+  line-height: 1.8;
+}
+
+.aclaracion {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+
+  
+
+
+@media (min-width: 800px) {
+  .h1title {
+    max-width: 70%;
+  }
+
+}
+@media (min-width: 728px) {
+  .h1title .titleForti {
+    min-width: 5rem;
+  }
+    .leftBeneficios li {
+}
+.LeftT {
+  min-height: 8vh;
+  max-height: 8vh;
+}
+.polygon{
+  height: 100vh;
+  height: 100svh;
+}
+.polygon .subtitle{
+  margin-bottom: 0;
+}
+.dControll{
+  flex-direction: row-reverse;
+}
+.leftText{
+    min-width: 51%;
+  max-width: 51%;
+}
+.rightModel{
+    max-width: 51%;
+  min-width: 51%;
+}
+  .boxPoliticas{
+    margin: 0 20%;
+  }
+}  
+
+/* Zoom alto (zoom in) */
+@media (min-resolution: 122dpi) {
+  
+}
+@media (max-resolution: 56dpi) {
+  .destacados>*{
+  }
+  .h1title .titleForti {
+    min-width: 20rem;
+    font-size: 6rem;
+  }
+
+}

@@ -1,0 +1,287 @@
+/* Detail.module.css 
+lo escribi por caja grande a caja chicas osea cada atributo es como una mamushca
+*/
+
+.headerFichapagos {
+  background-color: var(--blanco);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+    font-family: var(--font1);
+  color: var(--negro);
+}
+
+.h1Header{
+  display: flex;
+  font-size:larger;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+}
+
+/*Primera seccion*/
+.boxTransfe{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* negro con 30% de opacidad */
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.titleTrasfe{  
+  font-size: large;
+  align-items: center;
+  padding-left: 1rem;
+  display: flex;
+  margin: 0;
+  min-height: 8vh;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3); /* negro con 30% de opacidad */
+}
+.boxIcon{
+  color: var(--negro);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 8vh;
+  padding: 0.3rem;
+}
+.boxIcon .icon{
+  height: 4vh;
+  max-width: 8%;
+  margin: 0.5rem 1rem;
+}
+.boxIcon .h2Transfe{
+  min-width: 80%;
+  font-size:smaller;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.amountTransfe {
+  min-height: 5vh;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  margin: 0;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  font-weight: 900;
+  font-variant-numeric: lining-nums;
+
+}.strike {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  text-decoration: line-through;
+  width: auto;
+  margin: 0;
+  font-size: 1.1rem;
+  max-width: 15vh;
+
+}
+.h3Transfe{
+  min-width: 80%;
+  font-size:smaller;
+  display: flex;
+  min-height: 5vh;
+  padding-left: 1rem;
+  font-weight: 500;
+  align-items: center;
+}
+/*Fin primera seccion*/
+
+/*segunda seccion*/
+.boxCredit{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  min-height: 80vh;
+  background-color: var(--blanco);
+  flex-direction: column ;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* negro con 30% de opacidad */
+
+}
+ .sectionTitle{
+  font-size: large;
+  align-items: center;
+  padding-left: 1rem;
+  display: flex;
+  margin: 0;
+  color: var(--negro);
+  min-height: 8vh;
+  max-height: 8vh;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* negro con 30% de opacidad */
+
+} .SPANsubtitle{
+  margin: 0;
+  padding: 10px 1rem;
+  flex-wrap: wrap;
+  max-height: 5vh;
+  align-items: center;
+  font-size: small;
+  font-weight: 600;
+}
+
+.methodsList {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem ;
+  overflow: hidden;
+  min-height: 15vh;
+  max-height: 35vh;
+  padding: 1rem;
+}
+
+.boxItem {
+  display: flex;
+  min-width: 10vh;
+  max-width: 12vh;
+  min-height: 5vh;
+  max-height: 7vh;
+  margin: 0;
+  padding: 1rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+ background-color: rgb(226, 226, 226);
+  border-radius: 5px;
+}
+.methodImage {
+  width: auto;
+  overflow: hidden;
+  margin: 0;
+  height: 40px;
+}
+.active {
+  outline: 1.8px solid var(--negro); /* borde negro sutil */
+}
+
+
+/*SEGUNDA PARTE DE LA SECCION DOS*/
+
+.cuotasBox {
+  margin-top: 20px;
+  padding: 1rem;
+ 
+}
+.TboxCuotas{
+  margin: 0;  
+  font-size:large;
+  width: auto;
+  height: 5vh;
+}
+.nameMethod{
+  font-size:large;
+  font-weight: 500;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cuotasBox .cuotasList {
+  font-size: 16px;
+  height: auto;
+  min-height: 15rem;
+  max-height: 15rem;
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+
+.cuotasList .cuotasLi{
+  min-height: 2rem;
+  margin: 0;
+  max-height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  font-size: 85%;
+  font-weight: 500;
+  padding: 0.25rem;
+  font-variant-numeric: lining-nums;
+}
+ .amount{
+  margin: 0;
+  font-weight: 900;
+}
+.totalAmount{
+  display: flex;
+  margin: 0;
+  flex-wrap: nowrap;
+  font-weight: 900;
+  align-items: center;
+  justify-content: end;
+  font-variant-numeric: lining-nums;
+}
+.cuotasList .cuotasLi .cuotasLi:nth-child(0), .cuotasLi:nth-child(2) ,.cuotasLi:nth-child(4) ,.cuotasLi:nth-child(6),.cuotasLi:nth-child(8) {
+ background-color: rgb(226, 226, 226);
+}
+/*Fin segunda seccion*/
+
+/*TERCERA seccion 
+UTILIZO LOS MISMO ESTILOS QUE LA SECCION
+ DOS MENOS LO SIGUIENTE*/
+.boxDebit{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  background-color: var(--blanco);
+  flex-direction: column ;
+  min-height: 40vh;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* negro con 30% de opacidad */
+  margin-bottom: 1rem;
+}
+ 
+.debitList{
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  height: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 1rem;
+  }
+.BoxAmountDebit{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 1rem;
+}
+.BoxAmountDebit .h4amountDebit{
+  font-size: 2.3vh;
+  font-weight: 500;
+  min-width: 100%;
+}
+.BoxAmountDebit .totalAmountDebit{
+  min-width: 100%;
+  margin: 0;
+  font-size: 3vh;
+  min-height: 2rem;
+  display: flex;
+  align-items: start;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+}
+/*4ta seccion*/
+.blanco{
+  min-height: 5rem;
+
+  display: flex;
+  width: 100%;
+  margin: 0;
+  background-color: var(--blanco);
+  flex-direction: column ;
+  min-height: 15vh;
+  margin-bottom: 1rem;
+}

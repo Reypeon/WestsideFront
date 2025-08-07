@@ -1,0 +1,267 @@
+/* 
+@font-face {
+  font-family: 'MiFuentePersonalizada';
+  src: url("./public/fonts/StayPixelRegular-EaOxl.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MiFuentePersonalizada2';
+  src: url("./public/fonts//Omegacentauri-Eaapj.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+*/
+
+@font-face {
+  font-family: 'MiFuentePersonalizada3';
+  src: url("./public/fonts/Lixdu-p7Pn1.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+
+/* 
+* {
+
+  width: 100%;
+  padding: 0;
+  margin: 0 0;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior:smooth;
+  box-sizing: border-box;
+  flex: 1;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}*  */
+*{
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  max-width: 2500px;
+  margin: 0 auto;
+
+
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+    position: relative;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+
+}
+
+.headerApp{
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  min-height: 100dvh;
+    min-height: 100vh; /* fallback para navegadores antiguos */
+  flex-direction: column;
+}
+
+.headerApp video {
+  clip-path: inherit;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  overflow: hidden;
+  width: 100%;
+  min-height: 50vh;
+  z-index: -2;
+  object-fit: cover;
+    background-color: var(--colorfilter);
+
+  /* Asegura que el video cubra todo el área del contenedor sin deformarse */
+}
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+    will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+    background-color: var(--colorfilter);
+  overflow: hidden; /* ✅ previene advertencia visual */
+
+    pointer-events: none; /* Evita que interfiera con clics */
+  user-select: none; /* No seleccionable */
+}
+
+
+/* Scrollbar.css */
+/* Estilos para Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  outline: 0px solid rgb(230, 224, 224);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1); /* Mantiene la animación original */
+  border: none;
+    transition: all 2s ease;
+
+}
+
+::-webkit-scrollbar-track {
+  background: var(--negro)}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--blanco) ;
+  border: none ;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--negro); /* Color de fondo al pasar el cursor */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  /* Añade una transición suave para una animación más fluida */
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para Firefox */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Color de la thumb y del track en Firefox */
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: var(--negro); /* Color de fondo al pasar el cursor */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  /* Añade una transición suave para una animación más fluida */
+  transition: background-color 0.3s ease;
+}
+
+.widgetWrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  animation: fadeIn 1s ease forwards;
+}
+
+.whatsappButton {
+  background-color: #25D366;
+  border-radius: 50%;
+width: min(3.5rem, 10vw);
+height: min(3.5rem, 10vw);
+
+
+  right: 1vh;
+  bottom: 1vh;
+  overflow: visible;
+  padding: 2px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+
+.whatsappButton:hover {
+  transform: scale(1.1);
+    box-shadow: 0 4px 5px rgba(255, 255, 255, 0.7);
+
+}
+
+/* Animación inicial */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.Blur{
+  width: 100%;
+height: 100%;
+  z-index: -1;
+  position: fixed;
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 15%,
+        rgba(0, 0, 0, 0.9) 25%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%,
+    transparent 50%
+  );
+}
+:root {
+    color-scheme: only light;
+
+  --colorv1: rgb(114, 0, 255);         /* Violeta fuerte */
+  --colorv2: rgb(39, 1, 83);           /* Violeta oscuro */
+  --colorbazul: rgb(7, 3, 243);        /* Azul intenso */
+  --colorlimon: rgb(167, 247, 19);     /* Verde lima */
+
+  --Malva: #6a5acd;                   /* Reescrito en minúscula para compatibilidad */
+
+  --colorfilter: rgba(5, 5, 5, 0.9);   /* Negro opaco */
+  --colorfilterdos: rgba(5, 5, 5, 0.5);/* Negro más transparente */
+
+  --blanco: #ffffff;                  /* Blanco en hex seguro */
+  --negro: #000000; 
+
+  
+  /* --font1: 'Raleway', sans-serif; */
+  --font1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font2: 'Roboto Mono', monospace;
+
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  --colorv1: rgb(114, 0, 255);         /* Violeta fuerte */
+  --colorv2: rgb(39, 1, 83);           /* Violeta oscuro */
+  --colorbazul: rgb(7, 3, 243);        /* Azul intenso */
+  --colorlimon: rgb(167, 247, 19);     /* Verde lima */
+
+  --Malva: #6a5acd;                   /* Reescrito en minúscula para compatibilidad */
+
+  --colorfilter: rgba(5, 5, 5, 0.9);   /* Negro opaco */
+  --colorfilterdos: rgba(5, 5, 5, 0.5);/* Negro más transparente */
+
+  --blanco: #ffffff;                  /* Blanco en hex seguro */
+  --negro: #000000;   }
+}
+
+
+
+
+
+
+

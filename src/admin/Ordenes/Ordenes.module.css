@@ -1,0 +1,56 @@
+/* VisualizarOrdenes.module.css */
+
+.container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.ordenCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+.infoPrincipal p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.infoPrincipal strong {
+  font-weight: 600;
+}
+
+.itemsContainer {
+  margin-top: 1rem;
+}
+
+.itemsContainer h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.item {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item p {
+  margin: 0.2rem 0;
+}
