@@ -207,11 +207,11 @@ useEffect(() => {
         </div>
       )}
 
-      {/* <div className={s.paginationButtons}>
+      <div className={s.paginationButtons}>
         <button onClick={handlePrev} disabled={page === 0}>Anterior</button>
         <span>Página {page + 1} de {totalPages}</span>
         <button onClick={handleNext} disabled={page === totalPages - 1}>Siguiente</button>
-      </div> */}
+      </div>
     </>
   );
 }

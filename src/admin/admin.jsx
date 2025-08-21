@@ -34,6 +34,8 @@ const Admin = () => {
           axios.get(`${apiUrl}/api/getCategorias`),
           axios.get(`${apiUrl}/api/GetAllJsoNScraping`)
         ]);
+        console.log(res1);
+        
         setCategories(res1.data);
         setProductosMasivo(res2.data);
       } catch (err) {
@@ -87,6 +89,7 @@ const Admin = () => {
     },
   }),
 };
+console.log(categories);
 
   return (
     <div className={styles.adminContainer}>
@@ -109,7 +112,7 @@ const Admin = () => {
                 menuPosition="fixed"
           /> 
           <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("CrearProductos")}>Crear producto</button>
-          <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("ScanURL")}>Scrapear productos</button>
+          {/* <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("ScanURL")}>Scrapear productos</button> */}
           <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("DelMasivas")}>Elimiar productos</button>
           <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("ActulizarProductos")}>Actualizar productos</button>
           <button className={styles.btnNavAdmin} onClick={() => toggleSeccion("Ordenes")}>Ordenes</button>
@@ -124,12 +127,12 @@ const Admin = () => {
             </section>
           )}
 
-          {seccionVisible === "ScanURL" && (
+          {/* {seccionVisible === "ScanURL" && (
             <section className={styles.seccionMultiUso}>
               <span className={styles.btnXSeccion} onClick={toggleSeccion}> <X /> </span>
               <ScanURL />
             </section>
-          )}
+          )} */}
 
           {seccionVisible === "DelMasivas" && (
             <section className={styles.seccionMultiUso}>

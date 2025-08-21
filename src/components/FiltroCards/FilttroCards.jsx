@@ -13,11 +13,9 @@ const Cards = lazy(() => import("./cards/Cards.jsx"));
 // Defino la lista fuera del componente para que no se redefine en cada render
 const categoriesFilCards = [
   { name: 'NFL', iconName: "iconNFL", speed: "1", idcategory: "1" },
-  { name: 'Cargadores', iconName: 'iconNFL', speed: "0.5", idcategory: "21" },
-  { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
-  { name: 'Belleza', iconName: 'iconBelleza', speed: "0.5", idcategory: "8" },
-  { name: 'Computacion', iconName: 'iconTeclado', speed: "1", idcategory: "9" },
-  { name: 'Gamer', iconName: 'iconJoystick', speed: "1", idcategory: "17" },
+  { name: 'NHL', iconName: 'iconNFL', speed: "0.5", idcategory: "21" },
+  { name: 'NBA', iconName: 'iconNFL', speed: "0.5", idcategory: "22" },
+
 ];
 
 function FiltroCards() {
@@ -33,7 +31,6 @@ function FiltroCards() {
 
   // Aplicar cambios (filtro + orden) → actualiza la URL
 
-  console.log(order);
 
   // Manejo cambio filtro y actualizo URL
   const handlerClick = useCallback((idcategory) => {

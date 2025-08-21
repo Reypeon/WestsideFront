@@ -65,6 +65,7 @@ function Card({
           </button>
         </div>
       )}
+      
       <span className={s.boxCardCarritosvg}>
         <CartIcon
           className={s.cardCarritosvg}
@@ -82,7 +83,7 @@ function Card({
         {images && images.length > 0 ? (
           <img
             className={s.cardImg}
-            src={`${apibase}/media/${images[0].urlWEBP}`}
+            src={images[0].urlWEBP}
             alt={images[0].alt || 'Imagen del producto'}
           />
         ) : (
