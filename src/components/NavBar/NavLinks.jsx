@@ -1,23 +1,35 @@
 import s from "./NavLinks.module.css";
-import NavLateral from "./NavLateral/NavLateral";
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, useNavigate, matchPath } from 'react-router-dom';
+import { useState, useEffect, useRef, useMemo } from 'react';
+
 import IconoWebp from "../Icons/iconWebP";
-import { useCart } from "../CartContext";
 import CartIcon from '../Icons/carrito';
 
 // Redux
+import { useSelector, useDispatch } from 'react-redux';
 import { selectorCarrito } from '../../redux/cartReducer';
-import { useSelector } from 'react-redux';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useCart } from "../CartContext";
+
+import { toggleNav, selectorNav } from "../../redux/navReducer";
+
+
 
 function NavLinks() {
+
   const location = useLocation();
   const navigate = useNavigate();
-  const { toggleCart } = useCart();
+  //Carrito
+  const { toggleCart, isOpen } = useCart();
   const arrCarrito = useSelector(selectorCarrito);
+  //NAVlateral
+  const isOpenNAV = useSelector(selectorNav); 
+  const dispatch = useDispatch();
 
+  const isProductosOrDetail =
+  location.pathname === '/productos' ||
+  matchPath('/productos/cardDetail/:cardDetailId', location.pathname);
   // 🎯 Estado para cambiar color del icono
-  const [color, setColor] = useState('var(--blanco)');
+  const [color, setColor] = useState('#E7E4E4');
   const prevTotalQuantityRef = useRef(0);
 
   // ✔️ Calcular la cantidad total de productos
@@ -40,6 +52,7 @@ function NavLinks() {
     }, 1000);
 
     return () => clearTimeout(timer);
+
   }, [totalQuantity]);
 
   const handleNavigateAndScroll = (path) => {
@@ -50,47 +63,55 @@ function NavLinks() {
     }
   };
 
+
   return (
     <nav className={s.containerLinks}>
-      <span className={s.spanNav}>MAYORISTA DESDE $200.000 🚚</span>
-      <span className={s.spanNav}>MAYORISTA DESDE $200.000 🚚</span>
       <div className={s.navLinks}>
-        <NavLateral />
 
-        <div className={s.contentBtnNav}>
-          <button
-            onClick={() => handleNavigateAndScroll('/')}
-            className={`${s.btnNav} ${s.ocultarMobile}`}
-          >
-            Inicio
-          </button>
-          <button
-            onClick={() => handleNavigateAndScroll('/productos')}
-            className={s.btnNav}
-          >
-            Productos
+        {/* <div
+          className={`${s.btnNav} ${isOpenNAV ? s.activeBtn : ''}`}
+          style={{ zIndex: isOpenNAV ? 52 : 'auto' }}
+          onClick={() => dispatch(toggleNav())}>
+          Alternar Nav
+        </div> */}
+        <div className={`${s.btnNav} ${isOpenNAV ? s.activeBtn : ''}`} >
+          <button className={`${s.btn_toggle} ${isOpenNAV ? s.open : ''}`}
+              data-nav-toggle       // 🔹 este atributo es clave
+
+            onClick={() => dispatch(toggleNav())}>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
 
-        <span
-          className={s.logoNav}
-          onClick={() => navigate('/')}
-          style={{ cursor: 'pointer' }}
-        >
-          <IconoWebp name="Logo" />
-        </span>
+        <button
+          onClick={() => handleNavigateAndScroll('/')}
+          className={`${s.btnNav} ${location.pathname === '/' ? s.activeBtn : ''}`}>
+          <IconoWebp name="iconInicio" />
+        </button>
 
-        <section className={s.boxrigthNAV}>
-          <div className={s.buttonboxcart}>
-            <CartIcon
-              className={s.cartButton}
-              color={color} // aplica el color dinámico
-              onClick={()=>{
-                toggleCart()
-              }}
-            />
-          </div>
-        </section>
+        <button
+          onClick={() => handleNavigateAndScroll('/productos')}
+          className={`${s.btnNav} ${isProductosOrDetail ? s.activeBtn : ''}`}>
+          <IconoWebp name="iconShop" />
+        </button>
+
+        <button
+          onClick={() => handleNavigateAndScroll('/search')}
+          className={`${s.btnNav} ${isProductosOrDetail ? s.actiaveBtn : ''}`}>
+          <IconoWebp name="iconSearch" />
+        </button>
+
+        <div className={`${s.btnNav} ${isOpen ? s.activeBtn : ''}`} >
+          <CartIcon
+            color={color}
+            onClick={() => {
+              toggleCart()
+            }}
+          />
+        </div>
+
       </div>
     </nav>
   );

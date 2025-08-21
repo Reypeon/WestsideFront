@@ -1,43 +1,9 @@
-/* 
-@font-face {
-  font-family: 'MiFuentePersonalizada';
-  src: url("./public/fonts/StayPixelRegular-EaOxl.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'MiFuentePersonalizada2';
-  src: url("./public/fonts//Omegacentauri-Eaapj.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-*/
 
 @font-face {
   font-family: 'MiFuentePersonalizada3';
-  src: url("./public/fonts/Lixdu-p7Pn1.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: url("./public/fonts/BlackletterExtrabold-51DV.ttf") format('truetype');
 } 
 
-
-/* 
-* {
-
-  width: 100%;
-  padding: 0;
-  margin: 0 0;
-  text-decoration: none;
-  list-style: none;
-  scroll-behavior:smooth;
-  box-sizing: border-box;
-  flex: 1;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-}*  */
 *{
   padding: 0;
   box-sizing: border-box;
@@ -46,30 +12,21 @@
   list-style: none;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  max-width: 2500px;
   margin: 0 auto;
-
-
 }
 
 html, body {
   width: 100%;
-  overflow-x: hidden;
-    position: relative;
   -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-
 }
 
 .headerApp{
   display: flex;
   align-items: center;
-  overflow: hidden;
-  margin: 0;
   height: auto;
-  min-height: 100dvh;
-    min-height: 100vh; /* fallback para navegadores antiguos */
   flex-direction: column;
+  background-color: var(--blanco);
+  background-color: #cccc;
 }
 
 .headerApp video {
@@ -158,13 +115,13 @@ html, body {
   transition: background-color 0.3s ease;
 }
 
-.widgetWrapper {
+/* .widgetWrapper {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 9999;
   animation: fadeIn 1s ease forwards;
-}
+} */
 
 .whatsappButton {
   background-color: #25D366;
@@ -187,14 +144,14 @@ height: min(3.5rem, 10vw);
 }
 
 
-.whatsappButton:hover {
+/* .whatsappButton:hover {
   transform: scale(1.1);
     box-shadow: 0 4px 5px rgba(255, 255, 255, 0.7);
 
-}
+} */
 
 /* Animación inicial */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
     transform: scale(0.5);
@@ -203,7 +160,7 @@ height: min(3.5rem, 10vw);
     opacity: 1;
     transform: scale(1);
   }
-}
+} */
 
 
 .Blur{
@@ -239,8 +196,8 @@ height: 100%;
 
   
   /* --font1: 'Raleway', sans-serif; */
-  --font1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font2: 'Roboto Mono', monospace;
+  --font2: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font1: 'Roboto Mono', monospace;
 
 }
 @media (prefers-color-scheme: dark) {
@@ -256,7 +213,10 @@ height: 100%;
   --colorfilterdos: rgba(5, 5, 5, 0.5);/* Negro más transparente */
 
   --blanco: #ffffff;                  /* Blanco en hex seguro */
-  --negro: #000000;   }
+  --negro: #000000;   
+  --colorFondo: #f5f0c3;   
+  --fondoblur: rgba(223, 223, 223, 0.8);          
+}
 }
 
 

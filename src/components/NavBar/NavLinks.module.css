@@ -1,196 +1,143 @@
 .containerLinks {
   display: flex;
-  /* Asegura que los elementos hijos estén distribuidos a los extremos */
   align-items: flex-end;
   position: fixed;
-  height: 72px; /* equivalente a 4.5rem si 1rem = 16px */
-  min-height: 72px;
-  max-height: 72px;
-  width: 100%;
-  padding: 0.2rem;
+  height: 52px;
+  min-height: 52px;
+  max-height: 52px;
+  width: 90%;
+  border-radius: 6px;
+  flex: 1;
   margin: 0;
-  z-index: 20;
+  z-index: 49;
   overflow: visible;
   font-family: var(--font1);
   transition: all 900ms;
-  /* bottom: 0;
-  margin-top: auto; */
-  backdrop-filter: blur(10px);
-  background-color: var(--colorfilterdos);
-
+  bottom: 1rem;
+  background-color: var(--fondoblur);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 8px 0 rgba(78, 53, 53, 0.4);
+  transition: box-shadow 0.3s ease;
 }
 
-.spanNav{
-  transform: translate(100%);
-  position: absolute;
-  width: 100%;
-  height: 1rem;
-  top: 0;
-  font-weight: 900;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
-  font-variant-numeric: lining-nums;
-  color: var(--colorlimon);
-  white-space: nowrap; /* Evita que el texto se rompa */
-  animation: moveText 5s linear infinite; 
-}
- @keyframes moveText {
-  0% {
-    transform: translateX(100%); /* Comienza a la derecha */
-  }
-  100% {
-    transform: translateX(-100%); /* Termina a la izquierda */
-  }
-} 
+
 /* Lista de navegación */
 .navLinks {
   display: flex;
-  position: relative; 
+  position: relative;
   align-items: center;
+  justify-content: center;
   background: transparent;
   padding: 0;
-  gap: 1rem;
-  min-height: 3rem;
+  gap: 0.5rem;
   margin: 0;
   width: 100%;
+  padding: 0.5rem;
+  height: 100%;
   transition: all 900ms;
   flex-direction: row;
 }
 
 
-/* Estilo de los elementos de navegación */
-.navLinks .contentBtnNav{
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  gap: 0.5rem;
-  left: -0.5rem;
-  min-width: 20%;
-  max-width: 26%;
+.btnNav,
+.Logo {
   min-height: 2.5rem;
   max-height: 2.5rem;
+  min-width: 3.3rem;
+  max-width: 3.3rem;
   margin: 0;
-  
-}
-.btnNav {
-  height: 2rem;
-  width: 6.8rem;
-  margin: 0 ;
   align-self: center;
   background: transparent;
-  color: var(--blanco);
   overflow: hidden;
   cursor: pointer;
-  display: flex; /* Habilita Flexbox */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  display: flex;
+  /* Habilita Flexbox */
+  justify-content: center;
+  align-items: center;
+  /* Centra verticalmente */
   border: none;
   text-align: center;
-  outline: 1px solid var(--blanco);
-  font-weight: 400;
-  font-size : clamp(0.9rem, 1vh, 1rem);
-  padding: 2px;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-.ocultarMobile {
-  display: flex;
+  border-radius: 0.7pc;
+  transition: transform 1.25s cubic-bezier(0.19, 1, 0.22, 1),
+    background-color 1.25s cubic-bezier(0.19, 1, 0.22, 1),
+    color 1.25s cubic-bezier(0.19, 1, 0.22, 1),
+    box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  flex-direction: column;
+
 }
 
-/* Contenedor de botones, carrito , logo y quisa mg*/
-.boxrigthNAV{
-  display: flex;
-  justify-content: end;
-  padding-right: 1rem;
-  gap: 0.5rem;
-  width: 100%;
-  margin: 0;
+.Logo {
+  background: transparent;
+  box-shadow: none;
 }
-.logoNav {
+
+.activeBtn {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.8);
+  /* sombra más profunda al levantar */
+}
+
+.nameBtn {
+  display: flex;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
+  bottom: 2px;
+  color: var(--colorlimon);
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+  /*   BUTONN Hambur  */
+ .btn_toggle{
+  display: flex ;
+  flex-direction: column;
   justify-content: center;
-  color: var(--negro);
-  height: 100%;
-  margin: 0;
-  background-color: transparent;
-  z-index: 30; /* Para que esté encima si hay solapamientos */
+  background: transparent;
   cursor: pointer;
-}
-
-/* Estilo de los botones */
-.lupa {
-  display: flex;
-  min-width: 3rem;
-  max-width: 10%;
-  min-height: 2rem;
-  max-height: 2rem;
-  border-radius: 5px;
+  position:sticky ;
+  transition: all 900ms; 
+  min-height: 100vh;
+  width: 100%;
+  z-index: 21;
   margin: 0;
-  background: rgb(254, 254, 254);
-  outline: 0px solid rgba(255, 255, 255, 0.5);
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn_toggle span {
+    position: relative;
+    top: 4%;
+    width: 2.5rem;
+    margin-left: 0.5rem;
+    max-height: 2px;
+    min-height: 2px;
+    background-color:var(--negro);
+    margin-bottom: 5px;
+    border-radius: 2px; 
+    transform-origin: 9px 3.5px;
+    transition: all 0.2s linear;
+   
+}         
+
+/* Animación de apertura */
+.btn_toggle.open > span:nth-child(1) {
+transform: rotate(40deg) translateY(4px); /* Rota y mueve hacia abajo */
+width: 37px; /* Aumentamos el ancho para que se vea bien */
+}
+.btn_toggle.open > span:nth-child(2) {
+opacity: 0; /* Oculta el segundo span */
+}
+.btn_toggle.open > span:nth-child(3) {
+transform: rotate(-40deg) translateY(-2px); /* Rota y mueve hacia arriba */
+width: 37px; /* Aumentamos el ancho para que se vea bien */
 }
 
-.buttonboxcart {
-  display: flex;
-  position: relative;
-  right: -0.5rem;
-  align-items: center;
-  justify-content: center;
-  min-height: 4vh;
-  height: 2rem;
-  min-width: 6vh;
-  width: 4rem;
-  border-radius: 5px;
-  margin: 0;
-  cursor: pointer;
-  background-color: transparent;
-  outline: 1px solid var(--blanco);
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  overflow: hidden;
-}
 
-.buttonboxcart .cartButton{
-  min-width: 100%;
-  font-size: 4vh;
-}
-.buttonboxcart:hover, .btnNav:hover {
-  border: 0px solid;
-  outline-offset: 13px;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-  outline: 1px solid rgba(255, 255, 255, 0.5);
-  outline-color: rgba(247, 10, 10, 0);
-  }
-
+/* FIN BUTONN HamburGUESA  */
 
 /* Media Queries para diseño responsive */
-@media (max-width: 637px) {
-  .ocultarMobile {
-    display: none; /* o inline-flex si querés que se comporte como un botón */
-  }
-}
 
 @media (min-width: 637px) {
 
-.spanNav{
-    animation: moveText 15s linear infinite; 
-}
+  .containerLinks {
+    max-width: 45%;
+  }
 }
 
-
-.dottedText {
-  font-weight: 900;
-  font-size: 4rem;
-  color: #222;
-  -webkit-mask-image: radial-gradient(circle 2px, black 100%, transparent 100%);
-  mask-image: radial-gradient(circle 2px, black 100%, transparent 100%);
-  mask-size: 10px 10px;
-  -webkit-mask-size: 10px 10px;
-  mask-repeat: repeat;
-  -webkit-mask-repeat: repeat;
-}

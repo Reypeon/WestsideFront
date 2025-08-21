@@ -6,16 +6,17 @@ import axios from "axios";
 import styles from "./admin.module.css";
 import X from '../components/Icons/x'
 const Cards = lazy(() => import('../components/FiltroCards/cards/Cards'));
+
 import DelMasivas from "./DelMasivas";
 import CrearProductos from "./CrearProductos/CrearProductos";
 import ActulizarProductos from './ActulizarProductos/ActulizarProductos';
-import ScanURL from "./ScanURL/ScanURL.jsx";
+// import ScanURL from "./ScanURL/ScanURL.jsx"; seccio plan pro no pago esta seccion
 import Ordenes from "./Ordenes/getOrdenes.jsx";
 
 
 const Admin = () => {
   const [categories, setCategories] = useState([]);
-  const [GetAllJsoNScraping, setGetAllJsoNScraping] = useState([]);
+  const [productosMasivo, setProductosMasivo] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const [isAdmin, setIsAdmin] = useState(true);
 
@@ -24,6 +25,7 @@ const Admin = () => {
     setSeccionVisible(prev => (prev === tipo ? null : tipo));
   };
   const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrlLocal = import.meta.env.VITE_API_URL_LOCAL;
 
   useEffect(() => {
     const getData = async () => {
@@ -33,7 +35,7 @@ const Admin = () => {
           axios.get(`${apiUrl}/api/GetAllJsoNScraping`)
         ]);
         setCategories(res1.data);
-        setGetAllJsoNScraping(res2.data);
+        setProductosMasivo(res2.data);
       } catch (err) {
         console.error("Error al obtener categorías:", err);
       }
@@ -117,7 +119,7 @@ const Admin = () => {
               <span className={styles.btnXSeccion} onClick={toggleSeccion}> <X /> </span>
               <CrearProductos
                 categories={categories}
-                GetAllJsoNScraping={GetAllJsoNScraping}
+                productosMasivo={productosMasivo}
               />
             </section>
           )}

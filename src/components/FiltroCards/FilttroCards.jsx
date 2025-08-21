@@ -12,36 +12,28 @@ const Cards = lazy(() => import("./cards/Cards.jsx"));
 
 // Defino la lista fuera del componente para que no se redefine en cada render
 const categoriesFilCards = [
-  { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
-  { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
+  { name: 'NFL', iconName: "iconNFL", speed: "1", idcategory: "1" },
+  { name: 'Cargadores', iconName: 'iconNFL', speed: "0.5", idcategory: "21" },
   { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
   { name: 'Belleza', iconName: 'iconBelleza', speed: "0.5", idcategory: "8" },
   { name: 'Computacion', iconName: 'iconTeclado', speed: "1", idcategory: "9" },
   { name: 'Gamer', iconName: 'iconJoystick', speed: "1", idcategory: "17" },
-  { name: 'Relojes', iconName: 'iconSmartWatch', speed: "1", idcategory: "4" },
-  { name: 'Camaras', iconName: 'iconCamaras', speed: "1", idcategory: "6" },
-  { name: 'Accesorios Celulares', iconName: "iconAccesoriosCelu", speed: "1", idcategory: "5" },
-  { name: 'Accesorios TV', iconName: "icontv", speed: "1", idcategory: "23" },
-  { name: 'Herramientas y Ferreteria', iconName: 'iconHerramientas', speed: "1", idcategory: "24" },
-  { name: 'Iluminacion', iconName: 'iconIluminacion', speed: "0.8", idcategory: "1" },
-  { name: 'Hogar', iconName: 'iconHogar', speed: "1", idcategory: "25" },
-  { name: 'Auto', iconName: '', speed: "1", idcategory: "18" },
-  { name: 'Biclceta y Moto', iconName: '', speed: "1", idcategory: "19" },
-  { name: 'Dia del Niño', iconName: '', speed: "1", idcategory: "20" },
-  { name: 'Parlantes', iconName: 'iconParlantes', speed: "1", idcategory: "7" },
-  // { name: 'Sillas', iconName: '', speed: "1", idcategory: "" },
-  // { name: 'Drones', iconName: '', speed: "1", idcategory: "" },
 ];
 
 function FiltroCards() {
 
-  const [filter, setFilter] = useState("3"); // guardo solo id de categoría
+  const [filter, setFilter] = useState("1"); // guardo solo id de categoría
+  const [nameFilter, setNameFilter] = useState("");
+  const [order, setOrder] = useState("relevancia");
+  const [orderTemp, setOrderTemp] = useState(order);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [isAcordeonVisible, setIsAcordeonVisible] = useState(true);
-  const ignoreNextScroll = useRef(false);
+  const [isAcordeonVisible, setIsAcordeonVisible] = useState(false);
+  const [showOrderOptions, setShowOrderOptions] = useState(false); // nuevo estado para mostrar radios
 
-  // const topMarkerRef = useRef(null);
+  // Aplicar cambios (filtro + orden) → actualiza la URL
+
+  console.log(order);
 
   // Manejo cambio filtro y actualizo URL
   const handlerClick = useCallback((idcategory) => {
@@ -52,115 +44,159 @@ function FiltroCards() {
   // Inicializo filtro desde URL
   useEffect(() => {
     const categoryIds = searchParams.get("categoryIds");
-    if (categoryIds) {
-      setFilter(categoryIds);
-    }
-  }, [searchParams]);
+    const orderQuery = searchParams.get("order");
 
-  // Manejo el scroll para mostrar/ocultar acordeón
+    if (categoryIds) setFilter(categoryIds);
+    if (orderQuery) setOrder(orderQuery);
 
-  // 👇 Scroll control con IntersectionObserver
-// useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           setIsAcordeonVisible(true);
-//         } else {
-//           setIsAcordeonVisible(false);
-//         }
-//       },
-//       {
-//         root: null,
-//         threshold: 0,
-//       }
-//     );
+    const categoria = categoriesFilCards.find(
+      (cat) => cat.idcategory === (categoryIds || filter)
+    );
+    setNameFilter(categoria ? categoria.name : "");
+  }, [searchParams, filter]);
 
-//     if (topMarkerRef.current) {
-//       observer.observe(topMarkerRef.current);
-//     }
-
-//     return () => {
-//       if (topMarkerRef.current) {
-//         observer.unobserve(topMarkerRef.current);
-//       }
-//     };
-//   }, []);
- 
 useEffect(() => {
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
+  if (isAcordeonVisible) {
+    setOrderTemp(order);
+  }
+}, [isAcordeonVisible, order]);
 
-    // Si se hizo clic en el botón y aún no queremos ocultarlo
-    if (ignoreNextScroll.current) {
-      ignoreNextScroll.current = false;
-      return;
-    }
 
-    // Mostrar acordeón si el usuario está cerca del top
-    if (scrollY <= 100) {
-      setIsAcordeonVisible(true);
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (isAcordeonVisible) {
+      const scrollY = window.scrollY;
+      body.style.position = "fixed";
+      body.style.top = `-${scrollY}px`;
+      body.style.left = "0";
+      body.style.right = "0";
+      root.style.overflow = "hidden";
     } else {
-      setIsAcordeonVisible(false);
+      const scrollY = parseInt(body.style.top || "0", 10) * -1;
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      root.style.overflow = "";
+      window.scrollTo(0, scrollY);
     }
-  };
+  }, [isAcordeonVisible]);
 
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
 
-const handleToggleAcordeon = () => {
-  ignoreNextScroll.current = true; // Ignorar el scroll que puede generar el clic
-  setIsAcordeonVisible(true);
-};
   return (
-       <div className={sFilter.filtroContainer}>
-      {/* 👇 Elemento invisible para observar scroll */}
-      <div style={{ position: "absolute", top: 0, height: 1 }}></div>
+    <div className={sFilter.filtroContainer}>
+      <span className={sFilter.logoFilter}><IconoWebp name={'westsideLogo'} /></span>
+      <div className={sFilter.filtroHeader}>
+        <h1 className={sFilter.nameFilter}>{nameFilter}</h1>
 
-      <div
-        className={sFilter.clickable}
-        style={{
-          transform: !isAcordeonVisible ? 'translateY(0)' : 'translateY(-500%)',
-        }}
-        onClick={handleToggleAcordeon}
-      >
-        FILTROS
-        <Flecha
-          width="30"
-          height="35"
-          color="var(--blanco)"
-          style={{ transform: "rotate(-90deg)", cursor: "pointer", scale: '-0.5' }}
-        />
+        <div
+          className={`${sFilter.clickable} ${isAcordeonVisible ? sFilter.active : sFilter.inactive}`}
+          onClick={() => setIsAcordeonVisible(prev => !prev)}
+        >
+          {isAcordeonVisible ? (
+            <IconoWebp name="iconXgrafiti" className={`${sFilter.icon} ${sFilter.activeIcon}`} />
+          ) : (
+            <IconoWebp name="iconAjustesFilter" className={`${sFilter.icon} ${sFilter.inactiveIcon}`} />
+          )}
+        </div>
+        {isAcordeonVisible && (
+          <div className={sFilter.boxFiltrosAjustes}>
+            <h2 className={sFilter.h2filtrar}>FILTRAR</h2>
+
+            {/* Categorías */}
+            <section className={sFilter.contenedorAcordeones}>
+              {categoriesFilCards.map(({ idcategory, iconName, name, speed }) => (
+                <div
+                  key={idcategory}
+                  className={`${sFilter.acordeon} ${filter === idcategory ? sFilter.acordeonActivo : ''}`}
+                  onClick={() => handlerClick(idcategory)}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <div className={sFilter.icon}>
+                    <IconoWebp name={iconName} speed={speed} />
+                  </div>
+                  <div className={sFilter.name}>{name}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Botón para mostrar radios de ordenar */}
+            <button className={sFilter.boxMostrarOrden}
+              onClick={() => setShowOrderOptions(prev => !prev)}>
+              <span className={sFilter.btnMostrarItems}>Clasificar</span>
+
+              <IconoWebp className={sFilter.iconFlecha} style={{
+                display: 'inline-block',
+                transition: 'transform 1s ease',
+                transform: showOrderOptions ? '' : 'rotate(270deg)',
+              }} name={'iconFlecha'} />
+            </button>
+
+            {/* Radios solo se muestran si showOrderOptions es true */}
+            {showOrderOptions && (
+              <div className={sFilter.radioGroup}>
+                <label className={sFilter.radioOption}>
+                  <input
+                    type="radio"
+                    name="order"
+                    value="relevancia"
+                    checked={orderTemp === "relevancia"}
+                    onChange={(e) => setOrder(e.target.value)}
+                  />
+                  Más relevantes
+                </label>
+
+                <label className={sFilter.radioOption}>
+                  <input
+                    type="radio"
+                    name="order"
+                    value="precio-asc"
+                    checked={orderTemp === "precio-asc"}
+                    onChange={(e) => setOrder(e.target.value)}
+                  />
+                  Precio: Menor a mayor
+                </label>
+
+                <label className={sFilter.radioOption}>
+                  <input
+                    type="radio"
+                    name="order"
+                    value="precio-desc"
+                    checked={orderTemp === "precio-desc"}
+                    onChange={(e) => setOrder(e.target.value)}
+                  />
+                  Precio: Mayor a menor
+                </label>
+              </div>
+            )}
+            <div className={sFilter.BoxbtnAplicar}>
+
+              <button
+                onClick={() => {
+                  setOrder("relevancia");
+                  setOrderTemp("relevancia");
+                }}
+                className={sFilter.btnReset}
+              >
+                Reset
+              </button>
+              <button
+                onClick={() => setOrder(orderTemp)}
+                className={sFilter.btnAplicar}
+              >
+                Aplicar cambios
+              </button>
+            </div>
+
+          </div>
+        )}
       </div>
 
-      <section
-        className={sFilter.contenedorAcordeones}
-        style={{
-          transform: isAcordeonVisible ? 'translateY(0)' : 'translateY(-170%)',
-        }}
-      >
-        {categoriesFilCards.map(({ idcategory, iconName, name, speed }) => (
-          <div
-            key={idcategory}
-            className={`${sFilter.acordeon} ${filter === idcategory ? sFilter.acordeonActivo : ''}`}
-            onClick={() => handlerClick(idcategory)}
-            aria-pressed={filter === idcategory}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") handlerClick(idcategory);
-            }}
-          >
-              <div className={sFilter.icon}>
-                <IconoWebp name={iconName} speed={speed} />
-              </div>
-              <div className={sFilter.name}>{name}</div>
-            </div>
-          ))}
-        </section>
-
-      <Suspense fallback={<Loeader/>}>
-        <Cards filter={filter}/>
+      <Suspense fallback={<Loeader />}>
+        <Cards filter={filter} nameFilter={nameFilter} order={order} />
       </Suspense>
     </div>
   );

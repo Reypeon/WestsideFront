@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 
 const apibase = import.meta.env.VITE_API_URL_BaseD;
-const modelUrl = `${apibase}/glb/ab42f8c9-62d9-486d-bb60-9d9b65576ca7.glb`;
+const modelUrl = `${apibase}/glb/586b5b10-e3be-43df-89f4-c5d62e98b556.glb`;
 
 const variantSettings = (variant, isMobile) => {
   const positions = {
     xs: isMobile ? [0, -0.2, 1.1] : [0, -0.2, 1.2],
     sm: isMobile ? [0, -0.3, 1.3] : [0, -0.3, 1.4],
-    md: isMobile ? [0, 0, 1.4] : [0, 0, 1.5],
+    md: isMobile ? [5, 1, -5.4] : [5, 1, -5.4],
     lg: isMobile ? [0, 0, 0.5] : [0, 0, 0.5],
   };
 
@@ -59,25 +59,25 @@ const Model3d = ({
   const finalOrbit = overrideCameraOrbit || orbitData.orbitString;
 
   // Rotación automática personalizada
-  useEffect(() => {
-    const viewer = viewerRef.current;
-    if (!viewer) return;
+  // useEffect(() => {
+  //   const viewer = viewerRef.current;
+  //   if (!viewer) return;
 
-    let angle = orbitData.thetaDeg;
-    const phi = orbitData.phiDeg;
-    const radius = orbitData.radius;
-    const speed = 0.8;
-    let frameId;
+  //   let angle = orbitData.thetaDeg;
+  //   const phi = orbitData.phiDeg;
+  //   const radius = orbitData.radius;
+  //   const speed = 0.8;
+  //   let frameId;
 
-    const rotate = () => {
-      angle = (angle + speed) % 360;
-      viewer.cameraOrbit = `${angle.toFixed(1)}deg ${phi.toFixed(1)}deg ${radius.toFixed(2)}m`;
-      frameId = requestAnimationFrame(rotate);
-    };
+  //   const rotate = () => {
+  //     angle = (angle + speed) % 360;
+  //     viewer.cameraOrbit = `${angle.toFixed(1)}deg ${phi.toFixed(1)}deg ${radius.toFixed(2)}m`;
+  //     frameId = requestAnimationFrame(rotate);
+  //   };
 
-    viewer.addEventListener('load', rotate);
-    return () => cancelAnimationFrame(frameId);
-  }, [orbitData]);
+  //   viewer.addEventListener('load', rotate);
+  //   return () => cancelAnimationFrame(frameId);
+  // }, [orbitData]);
 
   return (
     <model-viewer
@@ -92,15 +92,18 @@ const Model3d = ({
       style={{
         display: 'flex',
         width: '100%',
-        height,
+        height: '100%',
         backgroundColor: 'transparent',
-        overflow: 'hidden',
+        overflow: 'visible',
         border: 'none',
         margin: '0',
-        pointerEvents: 'none',
+        padding: '0',
+        pointerEvents: 'auto',
+
       }}
-      exposure="0.03"
-      shadow-intensity="0.5"
+      exposure="1.5"
+      // shadow-intensity="2"
+      environment-image="https://cdn.jsdelivr.net/gh/google/model-viewer@v1.10.1/packages/shared-assets/environments/neutral.hdr"
     />
   );
 };

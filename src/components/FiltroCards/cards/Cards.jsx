@@ -10,7 +10,7 @@ const Card = lazy(() => import("./card/Card"));
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
-function ProductsCards({ filter, isAdmin = false }) {
+function ProductsCards({ filter, isAdmin = false, nameFilter, order}) {
   const apiUrl = import.meta.env.VITE_API_URL;
   // Cargar productos (por categoría si hay filtro)
   const { data, error, isLoading } = useSWR(
@@ -19,6 +19,7 @@ function ProductsCards({ filter, isAdmin = false }) {
       : `${apiUrl}/api/all-products`,
     fetcher
   );
+console.log(order);
 
   // Ordenar productos según ProductCategory.orden para la categoría filtrada
   const productosOrdenados = useMemo(() => {
@@ -36,16 +37,16 @@ function ProductsCards({ filter, isAdmin = false }) {
       return ordenA - ordenB;
     });
   }, [data, filter]);
-
   // Estado para el orden editable en admin
   const [adminOrder, setAdminOrder] = useState([]);
-
   // Cuando cambian los productos o el filtro, y si es admin, setear adminOrder con productos ordenados
   useEffect(() => {
     if (isAdmin) {
       setAdminOrder(productosOrdenados);
     }
   }, [productosOrdenados, isAdmin]);
+
+
 
   // Paginación
 const [page, setPage] = useState(() => {
@@ -142,7 +143,6 @@ useEffect(() => {
 
   return (
     <>
-      <div className={isAdmin ? undefined : s.toppadding}></div>
       {isAdmin ? (
         <>
         
@@ -157,7 +157,7 @@ useEffect(() => {
             className={s.cardsContainer} style={{ rowGap: '3.5rem' }}
             handle=".handle"
           >
-            {currentData.map(({ id, model, modelUser, description, price, stock, categories, images, quantity }) => (
+            {currentData.map(({ id, model, description, price, stock, categories, images, quantity }) => (
               <Suspense key={id} fallback={<Loeader mensaje="..." heigth="100%" />}>
                 <div className="handle" style={{ cursor: "grab", overflow: 'hidden' }}>
                   <Card
@@ -200,17 +200,18 @@ useEffect(() => {
                 quantity={quantity}
                 images={images}
                 isAdmin={isAdmin}
+                nameFilter={nameFilter}
               />
             </Suspense>
           ))}
         </div>
       )}
 
-      <div className={s.paginationButtons}>
+      {/* <div className={s.paginationButtons}>
         <button onClick={handlePrev} disabled={page === 0}>Anterior</button>
         <span>Página {page + 1} de {totalPages}</span>
         <button onClick={handleNext} disabled={page === totalPages - 1}>Siguiente</button>
-      </div>
+      </div> */}
     </>
   );
 }

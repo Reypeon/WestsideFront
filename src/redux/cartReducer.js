@@ -56,38 +56,3 @@ export default cardSlice.reducer;
 
 
 
-
-
-
-// import { ADD_FAVORITE, DELETE_FAVORITE } from "./actions-type.js"
-// // import { useSelector, useDispatch } from "react-redux";
-// // import { useEffect} from "react";
-
-// const initialState = {
-//     myFavorites : [],
-//     countmyFavorites : [],
-// }
-// console.log(initialState.countmyFavorites)  
-
-// const reducer = ( state = initialState, action ) =>{ // agregando los personajes favoritos que vienen de la action payload
-
-//     console.log(action)
-//     switch (action.type) {
-//         case ADD_FAVORITE:
-//             return{
-//                 ...state,
-//                 myFavorites: [...state.myFavorites, action.payload],// si hay informacion, copiamos y agregamos, si no reemplazamos 
-                
-//             }
-            
-//         case DELETE_FAVORITE:
-//             return{
-//                 ...state,
-//                 myFavorites: state.myFavorites.filter(char => char.id !== action.payload),
-           
-//             } 
-
-//         default:
-//             return{...state} 
-//     }
-// }

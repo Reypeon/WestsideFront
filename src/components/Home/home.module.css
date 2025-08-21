@@ -47,295 +47,32 @@
   background-color: transparent;
 }
 
-.polygon {
+.BoxPresentacion {
   display: flex;
-  flex-direction: column;
   width: 100%;
   height: 150vh;
   height: 150svh;
+  flex-direction: column;
   position: relative;
-  align-items: center;
-  z-index: 1;
-  margin: 0;
-  padding: 0;
   background-color:transparent;
 }
-.polygon .h1title {
+.Titulo{
+  width: 100%;
   display: flex;
+  top: 10vh;
   position: fixed;
-  align-items: center;
-  justify-content: center;
-  padding: 2% 1% 0 2%;
-  width: 100%;
-  height: 45%;
-  background-color: transparent;
-  z-index: 10;
-  margin: 0;
-  font-family: 'MiFuentePersonalizada3';
-}
-.h1title .titleForti {
-  text-align: center;
-  align-self: center;
-  height: auto;
-  margin: 0;
-  min-width: 2rem;
-  max-width: 10rem;
-  font-size: 5vh;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-  animation: focusIn 2.4s ease-out forwards;
-  animation-delay: var(--animation-delay);
-  filter: blur(10px);
-  background-size: cover;
-  background-clip: text;
-  color: var(--blanco);
-  -webkit-background-clip: text;
-
-}
-.topsubtitle{
-  display: flex;
-  min-height: 28vh;
-  max-height: 28vh;
-  width: 100%;
-  margin: 0;
-}
-.polygon .subtitle {
-  display: flex;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  padding: 2px 10px;
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  height: 3rem;
-  font-weight: 700;
-  margin-bottom: 7vh;
-  font-size: 2vh;
-  letter-spacing: 2px;
-  font-style: italic;
-  text-align: center;
-  color: var(--blanco);
-}
-.cajaBlur .h1title .titleForti:nth-child(3),
-.titleForti:nth-child(4),
-.titleForti:nth-child(5) {
-  color: var(--colorv1);
-}
-@keyframes focusIn {
-  0% {
-    filter: blur(15px);
-    opacity: 0;
-    /* Opcional, para un efecto más suave */
-  }
-
-  100% {
-    filter: blur(0px);
-    opacity: 1;
-
-  }
-}
-
-/*contenedor segunda seccion de blur osea abajo del titulo*/
-.dControll {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: end;
-  width: 100%;
-  flex: 1;
-  margin: 0;
-  z-index: 11;
-  gap: 0.2rem;
-  padding-bottom: 0.5rem;
-  padding: 0.5rem;
-}
-.leftText {
-  display: flex;
-  position: relative;
-  margin: 0;
-  min-width: 100%;
-  min-height: 52vh;
-  max-height: 52%;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column ;
-  background-color: var(--colorlimon);
-  border-radius: 2pc;
-  font-size: 26px;
-  overflow: hidden;
-  line-height: 1.5;
-    backdrop-filter: blur(5px);
-  /* background-color: rgb(19, 19, 19, 0.7); */
-  transition: opacity 0.4s ease, transform 0.4s ease;
-
-}
-.LeftT {
-  display: flex;
-    font-family: "MiFuentePersonalizada3";
-  font-size: clamp(1rem, 2vw, 2.8vh);
-  line-height: 1.5;
-  text-align: center;  
-  align-items: center;
-  justify-content: center;
-  color: var(--negro);
-  margin-top: 1%;
-  width: 100%;
-  padding: 0.5rem;
-  letter-spacing: 2px;
-}
-.leftBeneficios {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  text-align: left;  
-  height: 100%;
-  width: 100%;
-  padding-left: 2%;
-}
-.leftBeneficios li{
-    display: flex;
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-  align-items: center;
-  justify-content: flex-start;
-   flex-shrink: 0;
-   font-weight: 900;
-   color: var(--negro);
-     line-height: 1.1;
-
-}
-.leftBeneficios li:nth-child(1) {
-   font-size: clamp(2vh, 7vh ,7vh);
-   font-weight: 900;
-  width: 100%;
-}
-
-.leftBeneficios li:nth-child(2) {
-  justify-content: flex-start;
-  font-size: 3.5vh;
-  line-height: 0.5;
-  overflow: visible;
-  margin-bottom: 0.8rem;
-
-}
-.leftBeneficios li:nth-child(3) {
-  padding-left: 2%;
-  margin: 0;
-  max-width: 30%;
-  min-width: 13rem;
-  background-color: var(--negro);
-  color: var(--blanco);
-   font-size: 5vh;
-   font-weight: 900;
-  line-height: 1.4;
-  }
-.leftBeneficios li:nth-child(4) {
-  font-size: 2.5vh;
-  width: 100%;
-  font-weight: 700;
-  left: 1%;
-}
-.leftBeneficios li:nth-child(5) {
-  display: flex;
-  font-size: clamp(2vh, 5vh, 5vh);
-  font-weight: 900;
-  width: 100%;
-  margin: 0.2rem 0 0 0;
-  line-height: 0.8;
-}
-.leftBeneficios li:nth-child(6) {
-  font-size: 2.5vh;
-  width: 100%;
-  font-weight: 700;
-  left: 1%;
-}
-.leftBeneficios li:nth-child(7) {
-  width: 100%;
-    flex: 1;
-  }
-.spanleftBeneficios{
-  display: flex;
-  position: relative;
-  font-weight: 700;
-  min-width: 10rem;
-  height: 3rem;
-  font-size: 2.2vh;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: var(--negro);
-  background-color: var(--blanco);
-  border-radius: 5px;
-  padding: 0 0.5rem;
-  transition: all 0.5s ease;
-    letter-spacing: 1px;
-} 
-
-/*DERECHA DONDE ESTA EL 3D*/
-.rightModel .title3d {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--colorlimon);
-  margin-top: 0.5rem;
-  min-width: 100%;
-  top: 2rem;
-  width: 100%;
-  padding: 0.5rem;
-  font-size: clamp(0.8rem, 2vw, 2.8vh);
-  line-height: 1.5;
-  letter-spacing: 2px;
-  text-align: center;
-  font-family: "MiFuentePersonalizada3";
-}
- .rightModel {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-  /* min-height: 62vh;
-  max-height: 62%; */
-min-width: 100%;
-  background-color: rgb(19, 19, 19, 0.2);
-  backdrop-filter: blur(5px);
-  z-index: 10;
-  left: 0;
-  border-radius: 2pc;
-      /* clip-path: polygbon(2% 0%, 100% 0%,
-     100% 100%, 
-     71% 100%, 61% 87%, 2% 87%); */
-  justify-content: flex-start;
-  transition: opacity 0.7s ease, transform 0.7s ease;
-
-
-}
-.rightModel:hover {
-  background-color: rgb(19, 19, 19, 0.6);
-  transform: scale(95%);
-  box-shadow: 0px 0px 30px 1px rgba(224, 224, 224, 0.942);
-
 }
 .glbModel{
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 0;
   width: 100%;
-  height: 50vh;
-  padding-top: 8vh;
+  top: 2rem;
+  height: 100%;
+position: absolute;
+
 }
-.rightModel a{
-  width: 100%;
-}
+
 
 /* contenedor segunda seccion: CATEGORIAS:*/
 
@@ -781,10 +518,6 @@ transition: opacity 0.7s ease, transform 0.7s ease;
 .leftText{
     min-width: 51%;
   max-width: 51%;
-}
-.rightModel{
-    max-width: 51%;
-  min-width: 51%;
 }
   .boxPoliticas{
     margin: 0 20%;

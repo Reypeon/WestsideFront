@@ -1,21 +1,24 @@
+import s from "./NavLateral.module.css";
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import s from "./NavLateral.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { selectorNav, closeNav } from "../../../redux/navReducer";
 
 function NavLateral() {
-    const [evento, setEvento] = useState(false);
+    const dispatch = useDispatch();
     const navRef = useRef(null);
-
-    const handlerClick = () => {
-        setEvento(!evento);
-    };
+    const isOpenNAV = useSelector(selectorNav);
 
     // Cerrar al hacer clic fuera
-    const handleClickOutside = (e) => {
-        if (navRef.current && !navRef.current.contains(e.target)) {
-            setEvento(false);
-        }
-    };
+const handleClickOutside = (e) => {
+  if (!navRef.current) return;
+  // clic dentro del nav → no cerrar
+  if (navRef.current.contains(e.target)) return;
+  // clic en el botón toggle → no cerrar que esta en navlinks
+  if (e.target.closest('[data-nav-toggle]')) return;
+  // cualquier otro clic → cerrar
+  dispatch(closeNav());
+};
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
@@ -24,8 +27,33 @@ function NavLateral() {
         };
     }, []);
 
+    useEffect(() => {
+        const root = document.documentElement;
+        const body = document.body;
+
+        if (isOpenNAV) {
+            const scrollY = window.scrollY;
+            body.style.position = "fixed";
+            body.style.top = `-${scrollY}px`;
+            body.style.left = "0";
+            body.style.right = "0";
+            root.style.overflow = "hidden";
+        } else {
+            const scrollY = parseInt(body.style.top || "0", 10) * -1;
+            body.style.position = "";
+            body.style.top = "";
+            body.style.left = "";
+            body.style.right = "";
+            root.style.overflow = "";
+            window.scrollTo(0, scrollY);
+        }
+    }, [isOpenNAV]);
+
+
+
     const location = useLocation();
     const navigate = useNavigate();
+
 
     const handleNavigateAndScroll = (path) => {
         if (location.pathname === path) {
@@ -37,17 +65,24 @@ function NavLateral() {
 
 
     return (
-        <div ref={navRef} className={s.navContainerLat}>
-            <div
-                className={`${s.btn_toggle} ${evento ? s.open : ''}`}
-                onClick={handlerClick}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div className={`${s.navLat} ${!evento ? s.cerrar : ''}`}
 
-            >
+        <div ref={navRef} className={s.navLat}
+            style={{
+                transform: isOpenNAV ? "translateY(0)" : "",
+                transition: "transform 0.3s ease-in-out",
+                // pointerEvents: isOpenNAV ? "auto" : "none"
+            }}
+        >
+            {/* <button onClick={() => dispatch(closeNav())}>Cerrar</button> */}
+
+        </div>
+
+    );
+
+
+    // <div ref={navRef} className={s.navContainerLat}>
+
+    {/*
                 <ul className={s.contentUl}>
                     <span
                         className={s.logoLateral}
@@ -81,14 +116,12 @@ function NavLateral() {
                             <FaFacebook className={"redesNav"}></FaFacebook>
                             <IoLogoInstagram className={"redesNav"}></IoLogoInstagram>
                             <IoLogoInstagram className={"redesNav"}></IoLogoInstagram>
-                        </div> */}
+                        </div> 
                     </li>
                 </ul>
 
 
-            </div>
-        </div>
-    );
+            </div> */}
 }
 
 export default NavLateral;

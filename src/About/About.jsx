@@ -47,19 +47,19 @@ const About = () => {
   return (
     <div className={styles.aboutContainer}>
       <section className={styles.contentUlabout}>
-        <ul className={styles.ulAbout}>
+        {/* <ul className={styles.ulAbout}>
           <li className={styles.li}><Link to="/">Inicio</Link></li>
           <li className={styles.li}><Link to="/productos">Tienda</Link></li>
           <li className={styles.li}><Link to="/">Contacto</Link></li>
           <li className={styles.li}><Link to="/">¿Quiénes Somos?</Link></li>
-        </ul>
+        </ul> */}
 
         <div className={styles.boxLogoAbout}>
           <span className={styles.logoAbout}><IconoWebp name={'LogoDos'}/></span>
         </div>
 
         <div className={styles.ulAbout}>
-          <p>Poner tarjeta de presentacion</p>
+          <p>MARTIN TRONCOSO DEVELOPER</p>
         </div>
 
       </section>

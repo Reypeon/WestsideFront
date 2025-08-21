@@ -43,6 +43,27 @@ function Carrito() {
 
   }, [closeCart]);
 
+    useEffect(() => {
+        const root = document.documentElement;
+        const body = document.body;
+
+        if (isOpen) {
+            const scrollY = window.scrollY;
+            body.style.position = "fixed";
+            body.style.top = `-${scrollY}px`;
+            body.style.left = "0";
+            body.style.right = "0";
+            root.style.overflow = "hidden";
+        } else {
+            const scrollY = parseInt(body.style.top || "0", 10) * -1;
+            body.style.position = "";
+            body.style.top = "";
+            body.style.left = "";
+            body.style.right = "";
+            root.style.overflow = "";
+            window.scrollTo(0, scrollY);
+        }
+    }, [isOpen]);
 
   return (
 
@@ -51,7 +72,7 @@ function Carrito() {
       // className={sCard.cartsidebar}
       //activamos modo global con boxCarritoGlobal 
        className={`${sCard.cartsidebar} ${boxCarritoGlobal ? sCard.globalCarrito : ''}`}
-      style={!boxCarritoGlobal && isOpen ? { transform: 'translateX(0)' } : {}}
+      style={!boxCarritoGlobal && isOpen ? { transform: 'translateY(0)' } : {}}
     >
       <div className={sCard.carritoTitle}>
         <br />

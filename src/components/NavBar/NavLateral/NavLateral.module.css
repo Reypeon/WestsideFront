@@ -1,77 +1,21 @@
-/*box btn hamburguesa*/
-.navContainerLat {
-  max-width: 3rem;
-  min-width: 3rem;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  font-family: var(--font1);
-}
-.navLat.cerrar {
-  transform: translateX(-100%);
-
-}
 .navLat {
-  transition: transform 0.2s ease;
-  opacity: 1;
-  visibility: visible;
+  transform: translateY(110%);
+  transition: transform 0.4s ease;
+  padding: 0.5rem;
   backdrop-filter: blur(15px);
   flex-wrap: wrap;
   background-color: var(--colorfilter);
-  background-color: var(--blanco);
   position: fixed;
   display: flex;
   align-content: center;
-  width: 20rem;
-  min-height: 100vh;
-  left: 0;
-  z-index: 10;
-  border-radius: 15px;
-  margin-top: 3rem;
-}
-  /*   BUTONN Hambur  */
- .btn_toggle{
-  display: flex ;
-  flex-direction: column;
-  justify-content: center;
-  background: transparent;
-  cursor: pointer;
-  position:sticky ;
-  transition: all 900ms; 
-  min-height: 2.5rem;
-  z-index: 21;
   margin: 0;
-}
-.btn_toggle span {
-    position: relative;
-    top: 4%;
-    width: 2.5rem;
-    margin-left: 0.5rem;
-    max-height: 2px;
-    min-height: 2px;
-    background-color:var(--blanco);
-    margin-bottom: 5px;
-    border-radius: 2px; 
-    transform-origin: 9px 3.5px;
-    transition: all 0.2s linear;
-   
-}         
+  min-width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  z-index: 48;
+    font-family: var(--font1);
 
-/* Animación de apertura */
-.btn_toggle.open > span:nth-child(1) {
-transform: rotate(40deg) translateY(4px); /* Rota y mueve hacia abajo */
-width: 37px; /* Aumentamos el ancho para que se vea bien */
 }
-.btn_toggle.open > span:nth-child(2) {
-opacity: 0; /* Oculta el segundo span */
-}
-.btn_toggle.open > span:nth-child(3) {
-transform: rotate(-40deg) translateY(-2px); /* Rota y mueve hacia arriba */
-width: 37px; /* Aumentamos el ancho para que se vea bien */
-}
-
-
-/* FIN BUTONN HamburGUESA  */
   /*---------------------------------*/
   
   /*---------------------------------*/
@@ -187,7 +131,7 @@ width: 37px; /* Aumentamos el ancho para que se vea bien */
   outline-color: rgba(247, 10, 10, 0);
 }
 @media (max-width: 448px) {
-  .navLat {
+  /* .navLat {
     width: 100%;
-  }
+  } */
 } 

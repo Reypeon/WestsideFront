@@ -5,10 +5,12 @@ import Loader from './components/shared/loader.jsx';
 import ScrollRestoration from "./ScrollRestoration.jsx";
 import Wapp from "./components/Icons/wapp.jsx";
 import s from './main.module.css';
-
+import Chevy from "./components/3dcache/model3d.jsx";
 const Home = lazy(() => import("./components/Home/Home"));
 const About = lazy(() => import("./About/About"));
 const NavLinks = lazy(() => import("./components/NavBar/NavLinks"));
+const NavLateral = lazy(() => import("./components/NavBar/NavLateral/NavLateral"));
+
 const FiltroCards = lazy(() => import("./components/FiltroCards/FilttroCards"));
 const DetailCard = lazy(() => import("./components/FiltroCards/cards/card/detail/Detail"));
 const Admin = lazy(() => import("./admin/admin"));
@@ -31,45 +33,34 @@ function App() {
 
   return (
     <div className={s.headerApp} translate="no">
-      <video
-        ref={videoRef}
-        className={s.backgroundVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      >
-        <source src={`${apibase}/videos/0c526359-63cc-4d18-9f01-0a2e983d1c65.mp4`} type="video/mp4" />
-        Tu navegador no soporta el elemento de video.
-      </video>
-
       <Suspense fallback={<Loader />}>
         <NavLinks />
-        <ScrollRestoration/>
+        <ScrollRestoration />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/productos' element={<FiltroCards />} />
+          {/*     <Route path='/productos/cardDetail/:cardDetailId' element={<DetailCard />} />
+          <Route path='/checkout' element={<CheckoutForm />} /> */}
           <Route path='/productos/cardDetail/:cardDetailId' element={<DetailCard />} />
           <Route path='/admin' element={<Admin />} />
-          <Route path='/checkout' element={<CheckoutForm />} />
-          <Route path='/QuieneSomos' element={<QuieneSomos />} />
+          <Route path='/QuieneSomos' element={<Chevy />} />
         </Routes>
         <Carrito />
+        <NavLateral />
         <About />
       </Suspense>
 
 
-      <div className={s.widgetWrapper}>
+      {/* <div >
         <a
-          href="https://wa.me/+5492804863694?text=Hola!%20Estoy%20interesad@%20en%20sus%20productos"
+          href="https://wa.me/+5492804?text=Hola!%20Estoy%20interesad@%20en%20sus%20productos"
           target="_blank"
           rel="noopener noreferrer"
           className={s.whatsappButton}
         >
           <Wapp className={s.whatsappButton} />
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }

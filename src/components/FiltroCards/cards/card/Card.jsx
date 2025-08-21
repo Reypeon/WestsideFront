@@ -20,7 +20,9 @@ function Card({
   homeAnimacion = true,
   onDelete,
   onDeleteCate,
+  nameFilter
 }) {
+
 
   const carritoState = useSelector(selectorCarrito);
   const dispatch = useDispatch();
@@ -63,6 +65,19 @@ function Card({
           </button>
         </div>
       )}
+      <span className={s.boxCardCarritosvg}>
+        <CartIcon
+          className={s.cardCarritosvg}
+          color={isInCart ? "#CEFF02" : "#000000"}
+          onClick={handleAddToCart}
+          role="button"
+          tabIndex={0}
+          aria-label="Agregar al carrito"
+          style={{ cursor: "pointer" }}
+        />
+      </span>
+
+
       <Link className={s.imgliink} to={`/productos/cardDetail/${id}`} state={{ id }} >
         {images && images.length > 0 ? (
           <img
@@ -76,21 +91,19 @@ function Card({
       </Link>
 
       <div className={s.cardObj} >
+        <span className={s.categoriName}>{nameFilter}</span>
         <h1 className={s.cardModel}>{model} </h1>
-        <div className={s.fila} >
-          <CartIcon
-            className={s.cardCarritosvg}
-            color={isInCart ? "#CEFF02" : "#000000"}
-            onClick={handleAddToCart}
-            role="button"
-            tabIndex={0}
-            aria-label="Agregar al carrito"
-            style={{ cursor: "pointer" }}
-          />
+        <div className={s.fila}>
+          <span className={s.cardPriceAntes}>
+            ${Math.round(price * (1 + (Math.random() * (0.40 - 0.05) + 0.05)))
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+          </span>
           <span className={s.cardPrice}>
-            ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+            ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </span>
         </div>
+
       </div>
     </AnimacionCard>
   );

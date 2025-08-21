@@ -20,7 +20,7 @@ const ScanURL = () => {
   };
 
   const apiUrl = import.meta.env.VITE_API_URL;
-
+  const apiUrlLocal = import.meta.env.VITE_API_URL_LOCAL;
 
   const fetchCategorias = async () => {
     try {

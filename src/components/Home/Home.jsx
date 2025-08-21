@@ -9,6 +9,7 @@ import Flecha from "../Icons/flecha.jsx"
 import IconoWebp from '../Icons/iconWebP.jsx';
 
 import AnimacionJS from "../shared/AnimacionJS.jsx"
+import IconoWebm from '../Icons/iconWebP.jsx';
 // import Card from '../FiltroCards/cards/card/Card.jsx';
 // IMPORTS CON LAZY
 const Model3d = lazy(() => import('../3dcache/model3d.jsx'));
@@ -77,35 +78,6 @@ const Home = () => {
 
 
   // Animacion del titulo
-  const [letters, setLetters] = useState(['T', 'I', 'T', 'L', 'E']);
-  const totalChanges = 5;
-  useEffect(() => {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const intervals = [];
-    letters.forEach((_, index) => {
-      let changeCount = 0;
-      const interval = setInterval(() => {
-        setLetters(prevLetters => {
-          const updatedLetters = [...prevLetters];
-          updatedLetters[index] = alphabet[Math.floor(Math.random() * alphabet.length)];
-          return updatedLetters;
-        });
-        changeCount++;
-        if (changeCount >= totalChanges) {
-          clearInterval(interval);
-          setLetters(prevLetters => {
-            const updatedLetters = [...prevLetters];
-            updatedLetters[index] = ['M', 'I', 'L', 'U', 'X'][index];
-            return updatedLetters;
-          });
-        }
-      }, (index + 1) * 60);
-      intervals.push(interval);
-    });
-    return () => {
-      intervals.forEach(clearInterval);
-    };
-  }, []);
 
 
   const { ref: animRef, inView: animInView } = useInView({
@@ -127,80 +99,17 @@ const Home = () => {
 
   return (
     <div className={s.maincontent}>
-      <section className={s.polygon}>
-        <h1 className={s.h1title}>
-          {letters.map((letter, index) => (
-            <div
-              key={index}
-              className={s.titleForti}
-              style={{ '--animation-delay': `${index * 0.5}s` }}
-            >
-              {letter}
-            </div>
-          ))}
-        </h1>
-        <div className={s.topsubtitle}></div>
-        <AnimacionJS className={s.subtitle}
-          as="h1"
-          scrollRange={[0, 100]}
-          opacityRange={[1, 0]}
-        >
-          Distribuidora mayorista 
-        </AnimacionJS>
+      <section className={s.BoxPresentacion}>
+      <span className={s.Titulo}><IconoWebm name="westsideLogo" /></span>
 
-        <div className={s.dControll} ref={animRef}>
-
-            <AnimacionJS
-            as="aside"
-            className={s.leftText}
-            scrollRange={[100, 200]}
-            xRange={[0, 150]}      // Se mueve a la derecha
-            opacityRange={[1, 0]}  // Desaparece al hacer scroll
-            style={{ transformOrigin: "center" }}
-          >
-
-            <p className={s.LeftT}>IMPULSA TUS VENTAS</p>
-            <ul className={s.leftBeneficios}>
-              <li>18 CUOTAS</li>
-              <li>sin interes</li>
-              <li>10% OFF</li>
-              <li>En categoria Belleza y Hogar</li>
-              <li>Envio Gratis</li>
-              <li>Compras + $200.000</li>
-              <li>
-                <Link to='/productos'>
-                  <div className={s.spanleftBeneficios}>VER PRODUCTOS</div>
-                </Link>
-              </li>
-
-
-              {/* <li>🛒 Compra mínima accesible</li>
-                <li>🔥 Productos con alta demanda, ideales para crecer tus ventas</li>
-                <li>📱 Atención personalizada vía WhatsApp, email o vendedor presencial</li> */}
-            </ul>
-          </AnimacionJS>
-                        <AnimacionJS
-              as="article"
-              className={s.rightModel}
-              // scrollRange={[100, 200]}
-              // xRange={[0, -150]}
-              // opacityRange={[1, 0]}
-              style={{ transformOrigin: "center" }}
-            >
-              <h3 className={s.title3d}>ARTÍCULO MAS VENDIDO</h3>
-              <Link to={`/productos?categoryIds=1`}>
-                <Suspense fallback={<Loeader />}>
-                  <div className={s.glbModel}>
-                    <Model3d variant="md" />
-                  </div>
-                </Suspense>
-              </Link>
-            </AnimacionJS>
-        </div>
       </section>
 
+
+
+
+
       <section className={s.back3dScroll}>
-          <AnimacionJS
+          {/* <AnimacionJS
             className={s.sectionCategoris}
             scrollRange={[100, 400]}
             yRange={[100, 0]}
@@ -288,7 +197,7 @@ const Home = () => {
               />
             </button>
           </div>
-          </AnimacionJS>
+          </AnimacionJS> */}
   
         <div className={s.sectionEnvios}>
           <div className={s.boxPoliticas}>

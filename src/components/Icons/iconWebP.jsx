@@ -1,45 +1,24 @@
 
 
-import iconTeclado from "./webp/iconTeclado.webp"
-import iconWifi from "./webp/iconWifi.webp"
-import iconJoystick from "./webp/iconJoystick.webp"
-import iconParlantes from "./webp/iconParlantes.webp"
-import iconIluminacion from "./webp/iconIluminacion.webp"
-import iconAuris from "./webp/iconAuris.webp"
-import iconCargador from "./webp/iconCargador.webp"
-import iconCable from "./webp/iconCable.webp"
-import iconBelleza from "./webp/iconBelleza.webp"
-import iconSmartWatch from "./webp/iconSmartWatch.webp"
-import iconCamaras from "./webp/iconCamaras.webp"
-import iconAccesoriosCelu from "./webp/iconAccesoriosCelu.webp"
-import icontv from "./webp/icontv.webp"
-import iconHerramientas from "./webp/iconHerramientas.webp"
-import iconHogar from "./webp/iconHogar.webp"
-
-import Logo from "./webp/Logo.webp"
-import LogoDos from "./webp/LogoDos.webp"
-import LogoTres from "./webp/LogoTres.webp"
-
+// import iconHogar from "./webp/iconHogar.webp"
+// import westsideLogo from "./webp/westsideLogo.webp"
+import iconAjustesFilter from "./webp/iconAjustesFilter.webp"
+import iconXgrafiti from "./webp/iconXgrafiti.webp"
+import iconFlecha from "./webp/iconFlecha.webp"
+//filtros icon
+import tupacFitler from './webp/tupacFitler.webp'
+import iconNFL from './webp/iconNFL.webp'
 const icons = {
-  iconTeclado: iconTeclado,
-  iconWifi: iconWifi,
-  iconJoystick: iconJoystick,
-  iconParlantes: iconParlantes,
-  iconIluminacion: iconIluminacion,
-  iconAuris: iconAuris,
-  iconCargador: iconCargador,
-  iconCable: iconCable,
-  iconBelleza: iconBelleza,
-  icontv: icontv,
-  iconHerramientas: iconHerramientas,
-  iconHogar: iconHogar,
-  iconSmartWatch: iconSmartWatch,
-  iconCamaras: iconCamaras,
-  iconAccesoriosCelu: iconAccesoriosCelu,
-  Logo:Logo,
-  LogoDos: LogoDos,
-  LogoTres: LogoTres
+  // iconHogar: iconHogar,
+  
+  // westsideLogo: westsideLogo,
+  iconAjustesFilter: iconAjustesFilter,
+  iconXgrafiti: iconXgrafiti,
+  iconFlecha: iconFlecha,
 
+  //filtros icon
+  tupacFitler: tupacFitler,
+  iconNFL: iconNFL,
 };
 
 function IconoWebm({ name, alt = '', ...props }) {
