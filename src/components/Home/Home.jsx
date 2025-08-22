@@ -123,8 +123,6 @@ const Home = () => {
 
 
 
-
-
       <section className={s.back3dScroll}>
           {/* <AnimacionJS
             className={s.sectionCategoris}
@@ -219,25 +217,7 @@ const Home = () => {
         <div className={s.sectionEnvios}>
           <div className={s.boxPoliticas}>
             <div className={s.carBoxPOLITICAS}>
-              {/* <h2 className={s.title}>🚚 Política de Entregas</h2>
-              <p className={s.intro}>
-                En nuestro mayorista de artículos electrónicos trabajamos con una logística
-                planificada para ofrecerte<strong>los mejores precios y un servicio eficiente.</strong>
-                Por eso implementamos el siguiente sistema de entregas:
-              </p>
-              <div className={s.BorderLeft}>
-                <h3 className={s.PoliticassubT}>📦 Entregas estándar</h3>
-                <p>✔️ Durante la <strong>primera semana de cada mes</strong>.</p>
-                <p>✔️ <strong>Sin costo adicional</strong>.</p>
-              </div>
-              <div className={s.BorderLeft}>
-                <h3 className={s.PoliticassubT}>⚡ Entregas anticipadas (con recargo)</h3>
-                <p>✔️ Disponibles <strong>bajo solicitud</strong>.</p>
-                <p>✔️ Costo según <strong>zona y tiempo</strong>.</p>
-                <p className={s.importante}>
-                  🛎️ <strong>Importante:</strong> los pedidos urgentes se coordinan manualmente.
-                </p>
-              </div> */}
+ 
             </div>
 
 
