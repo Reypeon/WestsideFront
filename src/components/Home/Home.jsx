@@ -26,26 +26,11 @@ const Home = () => {
 
   const correctPassword = "admin124.124"; // 🔐 Podés cambiarla por una variable de entorno
 
+  const VITE_API_URL_BaseD = import.meta.env.VITE_API_URL_BaseD
   const categories = [
   { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
   { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
   { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
-  { name: 'Belleza', iconName: 'iconBelleza', speed: "0.5", idcategory: "8" },
-  { name: 'Computacion', iconName: 'iconTeclado', speed: "1", idcategory: "9" },
-  { name: 'Gamer', iconName: 'iconJoystick', speed: "1", idcategory: "17" },
-  { name: 'Relojes', iconName: 'iconSmartWatch', speed: "1", idcategory: "4" },
-  { name: 'Camaras', iconName: 'iconCamaras', speed: "1", idcategory: "6" },
-  { name: 'Accesorios Celulares', iconName: "iconAccesoriosCelu", speed: "1", idcategory: "5" },
-  { name: 'Accesorios TV', iconName: "icontv", speed: "1", idcategory: "23" },
-  { name: 'Herramientas y Ferreteria', iconName: 'iconHerramientas', speed: "1", idcategory: "24" },
-  { name: 'Iluminacion', iconName: 'iconIluminacion', speed: "0.8", idcategory: "1" },
-  { name: 'Hogar', iconName: 'iconHogar', speed: "1", idcategory: "25" },
-  { name: 'Auto', iconName: '', speed: "1", idcategory: "18" },
-  { name: 'Biclceta y Moto', iconName: '', speed: "1", idcategory: "19" },
-  { name: 'Dia del Niño', iconName: '', speed: "1", idcategory: "20" },
-  { name: 'Parlantes', iconName: 'iconParlantes', speed: "1", idcategory: "7" },
-  // { name: 'Sillas', iconName: '', speed: "1", idcategory: "" },
-  // { name: 'Drones', iconName: '', speed: "1", idcategory: "" },
 ];
 
   const handlePasswordSubmit = (e) => {
@@ -100,9 +85,41 @@ const Home = () => {
   return (
     <div className={s.maincontent}>
       <section className={s.BoxPresentacion}>
-      <span className={s.Titulo}><IconoWebm name="westsideLogo" /></span>
+        <div className={s.boxMural}>
+            <img
+            src={VITE_API_URL_BaseD + "/media/mural.jpg"}
+            alt="Fondo"
+            className={s.mural}
+          />
+          <span className={s.Titulo}>
+            <IconoWebm name="logopng" style={{ width: "300px", height: "auto" }} />
+          </span>
 
-      </section>
+        </div>
+
+        <div className={s.imgFondo}>
+          <img
+            src={VITE_API_URL_BaseD + "/media/FondoMobile.jpg"}
+            alt="Fondo"
+            className={s.imgBackground}
+          />
+          <div className={s.content}>
+            {/* Aquí va tu contenido encima del fondo */}
+          </div>
+                <div className={s.boxtrivales}>
+         <IconoWebm name="trival2"
+          className={s.trival2}/>
+        <IconoWebm name="trival"
+          className={s.trival}/>
+ 
+      </div>
+        </div>
+              </section>
+
+
+
+
+
 
 
 

@@ -43,30 +43,44 @@ function Carrito() {
 
   }, [closeCart]);
 
-    useEffect(() => {
-        const root = document.documentElement;
-        const body = document.body;
+useEffect(() => {
+  const root = document.documentElement;
+  const body = document.body;
 
-        if (isOpen) {
-            const scrollY = window.scrollY;
-            body.style.position = "fixed";
-            body.style.top = `-${scrollY}px`;
-            body.style.left = "0";
-            body.style.right = "0";
-            root.style.overflow = "hidden";
-        } else {
-            const scrollY = parseInt(body.style.top || "0", 10) * -1;
-            body.style.position = "";
-            body.style.top = "";
-            body.style.left = "";
-            body.style.right = "";
-            root.style.overflow = "";
-            window.scrollTo(0, scrollY);
-        }
-    }, [isOpen]);
+  if (isOpen) {
+    const scrollY = window.scrollY;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    root.style.overflow = "hidden";
+
+    // Bloquear retroceso una vez
+    const handlePopState = (e) => {
+      e.preventDefault();
+      dispatch(closeCart());
+      window.history.pushState(null, "", window.location.href);
+    };
+
+    window.history.pushState(null, "", window.location.href);
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  } else {
+    const scrollY = parseInt(body.style.top || "0", 10) * -1;
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    root.style.overflow = "";
+    window.scrollTo(0, scrollY);
+  }
+}, [isOpen]);
+
 
   return (
-
     <div
       ref={cartRef}
       // className={sCard.cartsidebar}

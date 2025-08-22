@@ -38,6 +38,17 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*contenedor de todo eh=l Home*/
 .maincontent {
   width: 100%;
@@ -50,28 +61,123 @@
 .BoxPresentacion {
   display: flex;
   width: 100%;
-  height: 150vh;
-  height: 150svh;
+  height: 100vh;
+  height: 100svh;
   flex-direction: column;
   position: relative;
-  background-color:transparent;
+  background-color:transparent; /* que no se repita */
+} 
+
+.imgFondo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen de fondo ocupando todo el contenedor */
+.imgBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* cubre todo el contenedor */
+  object-position: center;  /* centrada */
+  z-index: 0;
+}
+ .imgFondo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+background: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 1) 0%,
+  rgba(32, 30, 128, 0.699) 35%,
+  rgba(0, 0, 0, 0.5) 50%,
+  rgba(0, 0, 0, 0.2) 100%
+);
+} 
+
+/* Contenido encima del fondo */
+.imgFondo > .content {
+  position: relative;  /* para que quede encima del overlay */
+  z-index: 2;
+}
+
+.boxMural{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 30%;
+  z-index: 10;
+}
+ .boxMural::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+background: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 1) 2%,      /* negro sólido */
+  rgba(0, 0, 0, 0.7) 30%,     /* se degrada a transparente */
+  rgba(0, 0, 0, 0.2) 70%,     /* sigue transparente */
+  rgba(32, 30, 128, 0.699) 100%   /* termina en azul sólido */
+);  z-index: 20;
+} 
+
+.mural{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .Titulo{
-  width: 100%;
   display: flex;
-  top: 10vh;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  top: 5rem;
+  position: absolute;
   justify-content: center;
   align-items: center;
 }
-.glbModel{
+
+.boxtrivales{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   width: 100%;
-  top: 2rem;
   height: 100%;
-position: absolute;
+  max-height: 3rem;
+  bottom: -1rem;
+  padding: 0 3rem;
+  z-index: 13;
+}
+.trival, .trival2{
+  width: 50%;
+  position: relative;
+  background-color: transparent;
+  transform: rotate(180deg);
+    z-index: 13;
 
 }
+.trival2{
+
+}
+
 
 
 /* contenedor segunda seccion: CATEGORIAS:*/
@@ -82,11 +188,9 @@ position: absolute;
   position: relative;
   flex-direction: column;
   margin: 0;
-  /* top: -4.5vh; */
   padding-top: 5rem;
   z-index: 12;
   min-height: auto;
-  background-color: transparent;
   /* clip-path: polygon(0 0, 30% 0, 
   36% 2%, 100% 2%, 100% 100%, 0 100%); */
   /* background: linear-gradient(

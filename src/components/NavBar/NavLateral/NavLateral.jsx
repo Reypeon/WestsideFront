@@ -10,15 +10,15 @@ function NavLateral() {
     const isOpenNAV = useSelector(selectorNav);
 
     // Cerrar al hacer clic fuera
-const handleClickOutside = (e) => {
-  if (!navRef.current) return;
-  // clic dentro del nav → no cerrar
-  if (navRef.current.contains(e.target)) return;
-  // clic en el botón toggle → no cerrar que esta en navlinks
-  if (e.target.closest('[data-nav-toggle]')) return;
-  // cualquier otro clic → cerrar
-  dispatch(closeNav());
-};
+    const handleClickOutside = (e) => {
+    if (!navRef.current) return;
+    // clic dentro del nav → no cerrar
+    if (navRef.current.contains(e.target)) return;
+    // clic en el botón toggle → no cerrar que esta en navlinks
+    if (e.target.closest('[data-nav-toggle]')) return;
+    // cualquier otro clic → cerrar
+    dispatch(closeNav());
+    };
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
@@ -28,25 +28,41 @@ const handleClickOutside = (e) => {
     }, []);
 
     useEffect(() => {
-        const root = document.documentElement;
-        const body = document.body;
+    const root = document.documentElement;
+    const body = document.body;
 
-        if (isOpenNAV) {
-            const scrollY = window.scrollY;
-            body.style.position = "fixed";
-            body.style.top = `-${scrollY}px`;
-            body.style.left = "0";
-            body.style.right = "0";
-            root.style.overflow = "hidden";
-        } else {
-            const scrollY = parseInt(body.style.top || "0", 10) * -1;
-            body.style.position = "";
-            body.style.top = "";
-            body.style.left = "";
-            body.style.right = "";
-            root.style.overflow = "";
-            window.scrollTo(0, scrollY);
-        }
+    if (isOpenNAV) {
+        const scrollY = window.scrollY;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.left = "0";
+        body.style.right = "0";
+        root.style.overflow = "hidden";
+
+        // Agregar estado al historial para interceptar "atrás"
+        window.history.pushState(null, "", window.location.pathname);
+
+        const handlePopState = () => {
+        // Evita retroceder y cierra el nav
+        window.history.pushState(null, "", window.location.pathname);
+        dispatch(closeNav());
+        return;
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+        window.removeEventListener("popstate", handlePopState);
+        };
+    } else {
+        const scrollY = parseInt(body.style.top || "0", 10) * -1;
+        body.style.position = "";
+        body.style.top = "";
+        body.style.left = "";
+        body.style.right = "";
+        root.style.overflow = "";
+        window.scrollTo(0, scrollY);
+    }
     }, [isOpenNAV]);
 
 

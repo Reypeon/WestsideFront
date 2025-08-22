@@ -13,8 +13,8 @@
   overflow: visible;
   font-family: var(--font1);
   transition: all 900ms;
-  bottom: 1rem;
-  background-color: var(--fondoblur);
+  bottom: 0rem;
+  background-color: var(--fondoblur2);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 8px 0 rgba(78, 53, 53, 0.4);
   transition: box-shadow 0.3s ease;
@@ -51,6 +51,7 @@
   overflow: hidden;
   cursor: pointer;
   display: flex;
+  
   /* Habilita Flexbox */
   justify-content: center;
   align-items: center;
@@ -63,6 +64,8 @@
     color 1.25s cubic-bezier(0.19, 1, 0.22, 1),
     box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   flex-direction: column;
+    filter: brightness(0) contrast(1.2); /* hace la imagen negra intensa */
+
 
 }
 
@@ -92,7 +95,10 @@
   display: flex ;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background: transparent;
+    border: none;
+  border-radius: 0.7pc;
   cursor: pointer;
   position:sticky ;
   transition: all 900ms; 
@@ -103,7 +109,6 @@
 }
 .btn_toggle span {
     position: relative;
-    top: 4%;
     width: 2.5rem;
     margin-left: 0.5rem;
     max-height: 2px;
@@ -113,20 +118,22 @@
     border-radius: 2px; 
     transform-origin: 9px 3.5px;
     transition: all 0.2s linear;
-   
 }         
 
 /* Animación de apertura */
 .btn_toggle.open > span:nth-child(1) {
-transform: rotate(40deg) translateY(4px); /* Rota y mueve hacia abajo */
+transform: rotate(40deg) translateY(2px); /* Rota y mueve hacia abajo */
 width: 37px; /* Aumentamos el ancho para que se vea bien */
+  left: 3px;
 }
 .btn_toggle.open > span:nth-child(2) {
 opacity: 0; /* Oculta el segundo span */
 }
 .btn_toggle.open > span:nth-child(3) {
-transform: rotate(-40deg) translateY(-2px); /* Rota y mueve hacia arriba */
+transform: rotate(-40deg) translateY(-0px); /* Rota y mueve hacia arriba */
 width: 37px; /* Aumentamos el ancho para que se vea bien */
+  left: 3px;
+
 }
 
 
