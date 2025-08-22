@@ -235,15 +235,12 @@ transition: transform 2s ease;
     text-shadow: none;
     border: none;
     background-color: var(--negro);
-      transition: scale 0.2s ease-in-out;
         box-shadow: 
-    0 4px 30px rgb(245, 245, 245, 0.5),  /* sombra principal abajo */
-    0 2px 20px rgb(240, 239, 239, 0.5);  /* sombra secundaria arriba */
+    0 4px 30px rgba(0, 0, 0, 0.5),  /* sombra principal abajo */
+    0 2px 20px rgba(0, 0, 0, 0.5);  /* sombra secundaria arriba */
 
   }
-.acordeon:hover{
-   scale: 95%;
-}
+
 .acordeon .icon {
   display: flex;
   position: relative;
@@ -269,18 +266,16 @@ transition: transform 2s ease;
   top: 70%;
   font-family: 'miFuentePersonalizada3';
   line-height: 1;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
   background: transparent;
   z-index: 20;
   font-size: clamp(4rem, 2vw, 4vh);
   font-weight: 900;
-    color: rgb(0, 0, 0); /* color de relleno del texto */
-  -webkit-text-stroke: 1px white; /* contorno blanco */
-  text-stroke: 1px white; /* para navegadores que lo soporten */
+  -webkit-text-stroke: 1px var(--negro); /* contorno blanco */
+  text-stroke: 1px var(--negro); /* para navegadores que lo soporten */
   text-shadow: 
-    1px 1px 5px white,
-    -1px -1px 5px white;
-    
+    4px 4px 4px var(--negro),
+    -4px -4px 4px var(--negro);
 }
 /* fin de categorias */
 
