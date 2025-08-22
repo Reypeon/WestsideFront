@@ -27,6 +27,8 @@ const Home = () => {
   const correctPassword = "admin124.124"; // 🔐 Podés cambiarla por una variable de entorno
 
   const VITE_API_URL_BaseD = import.meta.env.VITE_API_URL_BaseD
+  console.log(VITE_API_URL_BaseD);
+  
   const categories = [
   { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
   { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
@@ -103,9 +105,6 @@ const Home = () => {
             alt="Fondo"
             className={s.imgBackground}
           />
-          <div className={s.content}>
-            {/* Aquí va tu contenido encima del fondo */}
-          </div>
                 <div className={s.boxtrivales}>
          <IconoWebm name="trival2"
           className={s.trival2}/>
@@ -114,7 +113,7 @@ const Home = () => {
  
       </div>
         </div>
-              </section>
+      </section>
 
 
 
