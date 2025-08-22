@@ -20,7 +20,7 @@ function Card({
   homeAnimacion = true,
   onDelete,
   onDeleteCate,
-  nameFilter
+  nameFilter = ''
 }) {
 
 

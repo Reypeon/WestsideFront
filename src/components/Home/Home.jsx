@@ -19,7 +19,7 @@ const fetcher = (url) => fetch(url).then(res => res.json());
 const Home = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
   const { data, error, isLoading } = useSWR(
-    `${apiUrl}/api/productos?categoryIds=28`,
+    `${apiUrl}/api/productos?categoryIds=1`,
     fetcher
   );  const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -110,60 +110,43 @@ const Home = () => {
         </div>
       </section>
 
-
-
-
-
-
-
-
       <AnimacionJS className={s.boxCategorias}
-        scrollRange={['0%', "38%"]}
-        yRange={["0%", "-100%"]}
-      >
-         <section className={s.sectionCategoris}>
+        scrollRange={['0%', "30%"]}
+        yRange={["-10%", "-102%"]} >
+        <section className={s.sectionCategoris}>
+          {categories.map((category, index) => (
+            <div
+              key={category.idcategory}
+              className={s.acordeon}>
+              <Link to={`/productos?categoryIds=${category.idcategory}`}>
+                <div className={s.icon}>
+                  <IconoWebp
+                    name={category.iconName}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+                <div className={s.name}>{category.name}</div>
+              </Link>
+            </div>
+          ))}
+        </section>
+      </AnimacionJS> 
           {/* <div className={s.boxtrivales}>
             <IconoWebm name="trival2"
               className={s.trival2} />
             <IconoWebm name="trival"
               className={s.trival} />
            </div> */}
-              {categories.map((category, index) => (
-                <div
-                  key={category.idcategory}
-                  className={s.acordeon}>
-                  <Link to={`/productos?categoryIds=${category.idcategory}`}>
-                    <div className={s.icon}>
-<IconoWebp 
-  name={category.iconName} 
-  style={{ 
-    width: "100%", 
-    height: "100%",   
-  }}
-/>
-                    </div>
-                    <div className={s.name}>{category.name}</div>
-                  </Link>
-                </div>
-              ))}
-
-          </section> 
-      </AnimacionJS>
-
 
         {/* // <Link to="/productos?categoryIds=1" className={s.btnTienda}>
         //   VER PRODUCTOS
         // </Link>  */}
 
-        <AnimacionJS
-            as="section"
-            className={s.sectionDestacados}
-            scrollRange={[500, 700]}
-            yRange={[100, 0]}
-            opacityRange={[0, 1]}
-            style={{ transformOrigin: "center" }}
-          >
-          <h5 className={s.titleD}> Productos Destacados</h5>
+      <section className={s.sectionDestacados}>
+          <h5 className={s.titleD}> QUE VA ACA?</h5>
           <div className={s.scrollD}>
             <div className={s.destacados} ref={scrollRef2} >
               {error && <p>Error loading products. Please try again.</p>}
@@ -180,7 +163,8 @@ const Home = () => {
                       categoryIds={categories}
                       quantity={quantity}
                       images={images}
-                      homeAnimacion={false}
+                      homeAnimacion={true}
+                      nameFilter={"Que poner aca?"}
                     />
                   </Suspense>
                 ))
@@ -189,22 +173,8 @@ const Home = () => {
               )}
             </div>
           </div>
-          <div className={s.boxBtnScroll}>
-            <button className={s.scrollButton} onClick={() => scroll(scrollRef2, "left")}>
-              <Flecha
-                color="var(--blanco)"
-                style={{ transform: "rotate(180deg)", cursor: "pointer" }}
-              />
-            </button>
-            <button className={s.scrollButtonDos} onClick={() => scroll(scrollRef2, "right")}>
-              <Flecha
-                color="var(--blanco)"
-                style={{ cursor: "pointer" }}
-              />
-            </button>
-          </div>
-          </AnimacionJS> 
-  
+ 
+      </section>  
         {/* <div className={s.sectionEnvios}>
           <div className={s.boxPoliticas}>
             <div className={s.carBoxPOLITICAS}>
