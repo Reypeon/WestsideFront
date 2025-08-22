@@ -189,9 +189,7 @@ background: linear-gradient(
   position: sticky;
   flex-direction: column;
   margin: 0;
-  padding-top: 5rem;
   z-index: 12;
-  border: 10px solid red;
 transition: transform 2s ease;
 
 }
@@ -199,11 +197,14 @@ transition: transform 2s ease;
 
 .sectionCategoris {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   flex-direction: column;
   width: 100%;
-  row-gap: 1rem;
-  border: solid blueviolet;
+  height: auto;
+  padding:10% 0.4rem 0.4rem 0.4rem;
+  row-gap: 0.4rem;
   /* Ayuda con temblores */
   -webkit-overflow-scrolling: touch;
   background: transparent;
@@ -221,30 +222,27 @@ transition: transform 2s ease;
 .acordeon {
   list-style: none;
   position: relative;
-  min-width: 12rem;
-  width: 10%;
-  min-height: 9rem;
-  height: 22vh;
-  padding: 5px 5px 0 5px;
+  width: 100%;
+  min-height: 20rem;
+  max-height: 20rem;
+  margin: 0;
     cursor: pointer;
-    flex: 0 0 auto;
-    border-radius: 10px;
+    border-radius: 15px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     text-shadow: none;
     border: none;
-    margin-left: 1rem;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.349);
     background-color: var(--negro);
-      transition: scale 0.2s, background-color 0.2s ease-in-out;
+      transition: scale 0.2s ease-in-out;
+        box-shadow: 
+    0 4px 30px rgb(245, 245, 245, 0.5),  /* sombra principal abajo */
+    0 2px 20px rgb(240, 239, 239, 0.5);  /* sombra secundaria arriba */
 
   }
 .acordeon:hover{
-    background-color: var(--negro);
    scale: 95%;
-
 }
 .acordeon .icon {
   display: flex;
@@ -253,20 +251,36 @@ transition: transform 2s ease;
   align-items: center;
   cursor: pointer;
   background-color: transparent;
-  height: 70%;
-  font-size:15rem;
+  height: 100%;
   width: 100%;
+  filter: brightness(0.4); /* 1 = normal, <1 más oscuro, >1 más brillante */
+
 }
+
 .acordeon .name {
   display: flex;
+  position: absolute;
   color: var(--blanco);
   text-align: center;
   justify-content: center;
   align-items: end;
   height: 20%;
+  width: 100%;
+  top: 70%;
+  font-family: 'miFuentePersonalizada3';
   line-height: 1;
+    letter-spacing: 10px;
   background: transparent;
-  font-size: clamp(2.3vh, 2vw, 2.3vh);
+  z-index: 20;
+  font-size: clamp(4rem, 2vw, 4vh);
+  font-weight: 900;
+    color: rgb(0, 0, 0); /* color de relleno del texto */
+  -webkit-text-stroke: 1px white; /* contorno blanco */
+  text-stroke: 1px white; /* para navegadores que lo soporten */
+  text-shadow: 
+    1px 1px 5px white,
+    -1px -1px 5px white;
+    
 }
 /* fin de categorias */
 

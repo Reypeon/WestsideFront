@@ -30,12 +30,10 @@ const Home = () => {
   console.log(VITE_API_URL_BaseD);
   
   const categories = [
-  { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "1" },
-  { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
-  { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
-    { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
-  { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
-  { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
+  { name: 'NHL', iconName: "tupacFitler", speed: "1", idcategory: "1" },
+  { name: 'NLB', iconName: 'iconNFL', speed: "0.5", idcategory: "2" },
+  { name: 'CAPS', iconName: "iconAuris", speed: "1", idcategory: "3" },
+  { name: 'NFL', iconName: 'iconCargador', speed: "0.5", idcategory: "4" },
 ];
 
   const handlePasswordSubmit = (e) => {
@@ -130,18 +128,23 @@ const Home = () => {
             <IconoWebm name="trival"
               className={s.trival} />
            </div> */}
-
               {categories.map((category, index) => (
-                <li
+                <div
                   key={category.idcategory}
                   className={s.acordeon}>
                   <Link to={`/productos?categoryIds=${category.idcategory}`}>
                     <div className={s.icon}>
-                      <IconoWebp name={category.iconName} />
+<IconoWebp 
+  name={category.iconName} 
+  style={{ 
+    width: "100%", 
+    height: "100%",   
+  }}
+/>
                     </div>
                     <div className={s.name}>{category.name}</div>
                   </Link>
-                </li>
+                </div>
               ))}
 
           </section> 
