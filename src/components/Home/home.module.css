@@ -1,5 +1,5 @@
 /* Contrasena */
-.passwordScreen {
+/* .passwordScreen {
   display: flex;
   position: fixed;
   width: 100%;
@@ -35,7 +35,7 @@
   border-radius: 0.5rem;
   color: white;
   cursor: pointer;
-}
+} */
 
 
 
@@ -53,6 +53,7 @@
 .maincontent {
   width: 100%;
   box-sizing: border-box;
+  position: relative;
   margin: 0 auto;
   font-family: var(--font1);
   background-color: transparent;
@@ -182,107 +183,40 @@ background: linear-gradient(
 
 /* contenedor segunda seccion: CATEGORIAS:*/
 
-.back3dScroll {
+.boxCategorias {
   display: flex;
   width: 100%;
-  position: relative;
+  position: sticky;
   flex-direction: column;
   margin: 0;
   padding-top: 5rem;
   z-index: 12;
-  min-height: auto;
-  /* clip-path: polygon(0 0, 30% 0, 
-  36% 2%, 100% 2%, 100% 100%, 0 100%); */
-  /* background: linear-gradient(
-    to bottom,
-    rgb(0, 0, 0) 0%,
-        rgba(0, 0, 0, 0) 25%,
-    transparent 100%
-  ); */
+  border: 10px solid red;
+transition: transform 2s ease;
+
 }
 
 
 .sectionCategoris {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  /* background: linear-gradient(0deg, rgba(39,1,83,1) 0%, rgba(0,0,0,1) 67%); */
-background: linear-gradient(
-  to bottom,
-  transparent 0%,        
-  rgba(39, 1, 83, 0.5) 25%,  
-    rgba(39, 1, 83, 0.5) 70%,    
-  rgba(39, 1, 83, 0) 100%      
-);
-  width: 100%;
-  z-index: 12;
-  overflow: hidden;
-transition: opacity 0.7s ease, transform 0.7s ease;
-
-}
-.sectionCategoris .h4Categori {
-  display: flex;
-  align-items: end;
-  justify-content: start;
-  text-align: center;
-  color: var(--blanco);
-  margin: 0 0 2% 0;
-  padding-bottom: 1%;
-  width: 90%;
-  border-bottom: 3px solid var(--blanco);
-  font-size: clamp(4.2vh, 1vw, 5vh);
-  font-weight: 500;  
-
-}
-.sectionCategoris .scrollFto {
-  display: flex;
   margin: 0;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  row-gap: 1rem;
+  border: solid blueviolet;
   /* Ayuda con temblores */
   -webkit-overflow-scrolling: touch;
-  padding-top: 1rem;
   background: transparent;
     z-index: 12;
   -ms-overflow-style: none;  /* IE y Edge */
   scrollbar-width: none;  
   scroll-behavior: smooth;
 }
-.scrollContent::-webkit-scrollbar {
+.sectionCategoris::-webkit-scrollbar {
   display: none; /* Chrome, Safari y Opera */
 }
-.boxBtnScrolluno{
-  display: flex;
-  position: relative;
-  height: 4rem;
-  margin:1rem 0;
-  width: 100%;
-  z-index: 4;
-}
-.scrollButton, .scrollButtonDos{
-  position: absolute;
-  background: transparent;
-  border: none;
-  margin: 0;
-  cursor: pointer;
-  margin: 0 0 0 20%;
-  padding: 0;
-  z-index: 4;
-  user-select: none;
-  transition: scale 0.2s ease-in-out;
 
-}
-.scrollButtonDos{
-  right: 20%;
-}
-.scrollButton:hover, .scrollButtonDos:hover{
- scale: 1.1;
-  
-}
+
 /* botones de categorias */
 .acordeon {
   list-style: none;

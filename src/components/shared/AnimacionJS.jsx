@@ -6,21 +6,62 @@ const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 // Interpolación lineal
 const lerp = (start, end, t) => start + (end - start) * t;
 
+// 🔹 Convierte rangos de movimiento (px o %)
+const getValue = (range, t) => {
+  if (!range) return "0px";
+
+  const [start, end] = range;
+
+  // Si ambos son strings con %
+  if (
+    typeof start === "string" &&
+    typeof end === "string" &&
+    start.includes("%") &&
+    end.includes("%")
+  ) {
+    const startNum = parseFloat(start);
+    const endNum = parseFloat(end);
+    const value = lerp(startNum, endNum, t);
+    return `${value}%`;
+  }
+
+  // Si son números → px
+  if (typeof start === "number" && typeof end === "number") {
+    return `${lerp(start, end, t)}px`;
+  }
+
+  return "0px"; // fallback
+};
+
+// 🔹 Convierte scrollRange a px (acepta % o px)
+const getScrollRange = (range) => {
+  const docHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  return range.map((val) => {
+    if (typeof val === "string" && val.includes("%")) {
+      const num = parseFloat(val);
+      return (num / 100) * docHeight; // convierte % en px
+    }
+    return val; // ya está en px
+  });
+};
+
 const AnimacionJS = ({
   as: Tag = "div",
   className,
-  scrollRange = [0, 1000], // rango de scroll global para normalizar t entre 0 y 1
-  xRange,      // [from, to], opcional
-  yRange,      // [from, to], opcional
-  scaleRange,  // [from, to], opcional
-  opacityRange, // [from, to], opcional
+  scrollRange = [0, 1000], // puede ser px o %
+  xRange,      // [from, to], px o %
+  yRange,      // [from, to], px o %
+  scaleRange,  // [from, to]
+  opacityRange, // [from, to]
   children,
   style = {},
 }) => {
-  // Usamos IntersectionObserver para saber si el elemento está en pantalla
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.1, // detecta con 1px visible
+    threshold: 0.1,
   });
 
   const [scrollY, setScrollY] = useState(
@@ -30,7 +71,7 @@ const AnimacionJS = ({
   );
 
   useEffect(() => {
-    if (!inView) return; // No escucha scroll si no está visible
+    if (!inView) return;
 
     const onScroll = () => {
       const scrollTop =
@@ -39,23 +80,25 @@ const AnimacionJS = ({
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
   }, [inView]);
 
-  // Normaliza el scroll global entre 0 y 1
-  const t =
-    scrollY <= scrollRange[0]
-      ? 0
-      : scrollY >= scrollRange[1]
-      ? 1
-      : (scrollY - scrollRange[0]) / (scrollRange[1] - scrollRange[0]);
+  // 🔹 Convierte scrollRange (px o %) a valores absolutos en px
+  const [startScroll, endScroll] = getScrollRange(scrollRange);
 
-  // Interpola si los valores están definidos, si no usa valores por defecto
-  const x = xRange ? lerp(xRange[0], xRange[1], t) : 0;
-  const y = yRange ? lerp(yRange[0], yRange[1], t) : 0;
+  // Normaliza scroll entre 0 y 1
+  const t =
+    scrollY <= startScroll
+      ? 0
+      : scrollY >= endScroll
+      ? 1
+      : (scrollY - startScroll) / (endScroll - startScroll);
+
+  // Valores interpolados
+  const x = getValue(xRange, t);
+  const y = getValue(yRange, t);
   const scale = scaleRange ? lerp(scaleRange[0], scaleRange[1], t) : 1;
   const opacity = opacityRange ? lerp(opacityRange[0], opacityRange[1], t) : 1;
 
@@ -64,7 +107,7 @@ const AnimacionJS = ({
       ref={ref}
       className={className}
       style={{
-        transform: `translateX(${x}px) translateY(${y}px) scale(${scale})`,
+        transform: `translateX(${x}) translateY(${y}) scale(${scale})`,
         opacity,
         ...style,
       }}

@@ -30,7 +30,10 @@ const Home = () => {
   console.log(VITE_API_URL_BaseD);
   
   const categories = [
-  { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
+  { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "1" },
+  { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
+  { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
+    { name: 'Auriculares', iconName: "iconAuris", speed: "1", idcategory: "3" },
   { name: 'Cargadores', iconName: 'iconCable', speed: "0.5", idcategory: "21" },
   { name: 'Cables y Adapradores', iconName: 'iconCargador', speed: "0.5", idcategory: "22" },
 ];
@@ -105,13 +108,7 @@ const Home = () => {
             alt="Fondo"
             className={s.imgBackground}
           />
-                <div className={s.boxtrivales}>
-         <IconoWebm name="trival2"
-          className={s.trival2}/>
-        <IconoWebm name="trival"
-          className={s.trival}/>
- 
-      </div>
+
         </div>
       </section>
 
@@ -122,15 +119,18 @@ const Home = () => {
 
 
 
-      <section className={s.back3dScroll}>
-          {/* <AnimacionJS
-            className={s.sectionCategoris}
-            scrollRange={[100, 400]}
-            yRange={[100, 0]}
-            opacityRange={[0, 1]}
-          >
-            <h4 className={s.h4Categori}>Categorias</h4>
-            <ul className={s.scrollFto} ref={scrollRef1}>
+      <AnimacionJS className={s.boxCategorias}
+        scrollRange={['0%', "38%"]}
+        yRange={["0%", "-100%"]}
+      >
+         <section className={s.sectionCategoris}>
+          {/* <div className={s.boxtrivales}>
+            <IconoWebm name="trival2"
+              className={s.trival2} />
+            <IconoWebm name="trival"
+              className={s.trival} />
+           </div> */}
+
               {categories.map((category, index) => (
                 <li
                   key={category.idcategory}
@@ -143,25 +143,14 @@ const Home = () => {
                   </Link>
                 </li>
               ))}
-            </ul>
-            <div className={s.boxBtnScrolluno}>
-              <button className={s.scrollButtonDos} onClick={() => scroll(scrollRef1, "right")}>
-                <Flecha
-                  color="var(--blanco)"
-                  style={{ cursor: "pointer" }}
-                />
-              </button>
-              <button className={s.scrollButton} onClick={() => scroll(scrollRef1, "left")}>
-                <Flecha
-                  color="var(--blanco)"
-                  style={{ transform: "rotate(180deg)", cursor: "pointer" }}
-                />
-              </button>
-            </div>
-          </AnimacionJS>
-        <Link to="/productos?categoryIds=1" className={s.btnTienda}>
-          VER PRODUCTOS
-        </Link> 
+
+          </section> 
+      </AnimacionJS>
+
+
+        {/* // <Link to="/productos?categoryIds=1" className={s.btnTienda}>
+        //   VER PRODUCTOS
+        // </Link>  */}
 
         <AnimacionJS
             as="section"
@@ -211,9 +200,9 @@ const Home = () => {
               />
             </button>
           </div>
-          </AnimacionJS> */}
+          </AnimacionJS> 
   
-        <div className={s.sectionEnvios}>
+        {/* <div className={s.sectionEnvios}>
           <div className={s.boxPoliticas}>
             <div className={s.carBoxPOLITICAS}>
  
@@ -239,7 +228,7 @@ const Home = () => {
                     <strong>4. Coordinación:</strong> Nos pondremos en contacto para confirmar disponibilidad y fecha de entrega.
                   </li>
                 </ol>
-              </div> */}
+              </div> 
             </div>
 
             <div className={s.carBoxPOLITICAS}>
@@ -255,7 +244,7 @@ const Home = () => {
                 <p className={s.importante}>
                   📌 <strong>Importante:</strong> Asegurate de coordinar correctamente la forma de pago al finalizar tu pedido para evitar demoras en la entrega.
                 </p>
-              </div> */}
+              </div> 
 
             </div>
           </div>
@@ -271,10 +260,9 @@ const Home = () => {
             <Model3d variant='lg' />
           </Suspense>
           
-        </AnimacionJS>
+        </AnimacionJS> */}
       
 
-      </section>
     </div>
   );
 };
