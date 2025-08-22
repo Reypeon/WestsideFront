@@ -191,7 +191,7 @@ background: linear-gradient(
   margin: 0;
   z-index: 12;
   background: transparent;
-  transition: transform 2s ease;
+  transition: transform 0.4s ease;
 
 }
 
