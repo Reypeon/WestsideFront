@@ -64,7 +64,8 @@
     color 1.25s cubic-bezier(0.19, 1, 0.22, 1),
     box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   flex-direction: column;
-    filter: brightness(0) contrast(1.2); /* hace la imagen negra intensa */
+    /* filter: brightness(0) contrast(1.2); */
+  filter: brightness(0.7) contrast(1.2);
 
 
 }
@@ -77,7 +78,7 @@
 .activeBtn {
   transform: translateY(-3px) scale(1.01);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.8);
-  /* sombra más profunda al levantar */
+  filter: brightness(1);
 }
 
 .nameBtn {
@@ -98,24 +99,20 @@
   align-items: center;
   background: transparent;
     border: none;
-  border-radius: 0.7pc;
   cursor: pointer;
-  position:sticky ;
-  transition: all 900ms; 
   min-height: 100vh;
   width: 100%;
   z-index: 21;
+  padding-top: 5px;
   margin: 0;
 }
 .btn_toggle span {
     position: relative;
-    width: 2.5rem;
-    margin-left: 0.5rem;
+    width: 2.4rem;
     max-height: 2px;
     min-height: 2px;
-    background-color:var(--negro);
+    background-color:var(--blanco);
     margin-bottom: 5px;
-    border-radius: 2px; 
     transform-origin: 9px 3.5px;
     transition: all 0.2s linear;
 }         
@@ -128,6 +125,8 @@ width: 37px; /* Aumentamos el ancho para que se vea bien */
 }
 .btn_toggle.open > span:nth-child(2) {
 opacity: 0; /* Oculta el segundo span */
+    transition: none;
+
 }
 .btn_toggle.open > span:nth-child(3) {
 transform: rotate(-40deg) translateY(-0px); /* Rota y mueve hacia arriba */

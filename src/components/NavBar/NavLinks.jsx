@@ -88,19 +88,19 @@ function NavLinks() {
         <button
           onClick={() => handleNavigateAndScroll('/')}
           className={`${s.btnNav} ${location.pathname === '/' ? s.activeBtn : ''}`}>
-          <IconoWebp name="iconHome"  style={{ width: '55px', height: '60px' }} />
+          <IconoWebp name="iconHome"  style={{ width: '100%', height: '100%' }} />
         </button>
 
         <button
           onClick={() => handleNavigateAndScroll('/productos')}
           className={`${s.btnNav} ${isProductosOrDetail ? s.activeBtn : ''}`}>
-          <IconoWebp name="iconProductos"  style={{ width: '55px', height: '60px' }} />
+          <IconoWebp name="iconProductos"  style={{ width: '90%', height: '90%', translate: '0 -2px' }} />
         </button>
 
         <button
           onClick={() => handleNavigateAndScroll('/search')}
           className={`${s.btnNav} ${location.pathname === '/search' ? s.activeBtn : ''}`}>
-          <IconoWebp name="iconLupa" style={{ width: '55px', height: '60px' }}/>
+          <IconoWebp name="iconLupa" style={{ width: '100%', height: '100%' }}/>
         </button>
 
         <div className={`${s.btnNav} ${isOpen ? s.activeBtn : ''}`} >
