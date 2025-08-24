@@ -5,7 +5,6 @@ import iconLogo from "./webp/iconLogo.webp"
 import logopng from "./webp/logopng.png"
 import iconAjustesFilter from "./webp/iconAjustesFilter.webp"
 import iconXgrafiti from "./webp/iconXgrafiti.webp"
-import iconFlecha from "./webp/iconFlecha.webp"
 import iconProductos from './webp/iconProductos.webp'
 import iconLupa from "./webp/iconLupa.webp"
 import iconHome from "./webp/iconHome.webp"
@@ -22,7 +21,6 @@ const icons = {
   logopng: logopng,
   iconAjustesFilter: iconAjustesFilter,
   iconXgrafiti: iconXgrafiti,
-  iconFlecha: iconFlecha,
   iconProductos: iconProductos,
   iconLupa: iconLupa,
   iconHome: iconHome,

@@ -30,7 +30,7 @@ function DetailCard() {
   const [quantity, setQuantity] = useState(1);
   const productostate = location.state?.producto;
   const images = character?.images;
-console.log(character);
+console.log(productostate);
 
   const getProductQuantityFromCart = (productId) => {
     const productInCart = carritoState.find((item) => item.id === productId);
@@ -129,6 +129,7 @@ useEffect(() => {
   }
   
 }, [isExpanded]);
+console.log(images);
 
   return (
     <div className={s.detallesContainer}>

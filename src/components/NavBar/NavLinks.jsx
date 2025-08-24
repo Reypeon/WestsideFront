@@ -67,13 +67,6 @@ function NavLinks() {
   return (
     <nav className={s.containerLinks}>
       <div className={s.navLinks}>
-
-        {/* <div
-          className={`${s.btnNav} ${isOpenNAV ? s.activeBtn : ''}`}
-          style={{ zIndex: isOpenNAV ? 52 : 'auto' }}
-          onClick={() => dispatch(toggleNav())}>
-          Alternar Nav
-        </div> */}
         <div className={`${s.btnNav} ${isOpenNAV ? s.activeBtn : ''}`} >
           <button className={`${s.btn_toggle} ${isOpenNAV ? s.open : ''}`}
               data-nav-toggle       // 🔹 este atributo es clave

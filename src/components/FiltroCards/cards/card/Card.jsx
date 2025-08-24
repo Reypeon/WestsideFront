@@ -26,7 +26,6 @@ function Card({
 
   const carritoState = useSelector(selectorCarrito);
   const dispatch = useDispatch();
-  const apibase = import.meta.env.VITE_API_URL_BaseD;
 
   const isInCart = carritoState.some(item => item.id === id);
 
@@ -79,17 +78,21 @@ function Card({
       </span>
 
 
-      <Link className={s.imgliink} to={`/productos/cardDetail/${id}`} state={{ id }} >
+      <Link className={s.imgliink} to={`/productos/cardDetail/${id}`} state={{ id }}>
         {images && images.length > 0 ? (
-          <img
-            className={s.cardImg}
-            src={images[0].urlWEBP}
-            alt={images[0].alt || 'Imagen del producto'}
-          />
+          <picture>
+            <source srcSet={images[0].urlWEBP ? images[0].urlWEBP : 'Loading...'} type="image/webp" />
+            <img
+              className={s.cardImg}
+              src={images[0].urlJPG ? images[0].urlJPG : 'Loading...'} // fallback para navegadores que no soportan WebP
+              alt={images[0].alt || model || 'Imagen del producto'}
+            />
+          </picture>
         ) : (
           <p>No contiene imágenes</p>
         )}
       </Link>
+
 
       <div className={s.cardObj} >
         <span className={s.categoriName}>{nameFilter}</span>

@@ -7,16 +7,18 @@ import { lazy, Suspense } from "react";
 import IconoWebp from '../Icons/iconWebP.jsx';
 
 import Flecha from "../Icons/flecha.jsx"
+import { transform } from "lodash";
 
 const Cards = lazy(() => import("./cards/Cards.jsx"));
 
 // Defino la lista fuera del componente para que no se redefine en cada render
 const categoriesFilCards = [
-  { name: 'NFL', iconName: "iconNFL", speed: "1", idcategory: "1" },
-  { name: 'NHL', iconName: 'iconNFL', speed: "0.5", idcategory: "21" },
-  { name: 'NBA', iconName: 'iconNFL', speed: "0.5", idcategory: "22" },
-
+  { name: 'NHL', iconName: "tupacFitler", speed: "1", idcategory: "1" },
+  { name: 'NLB', iconName: 'iconNFL', speed: "0.5", idcategory: "2" },
+  { name: 'CAPS', iconName: "iconAuris", speed: "1", idcategory: "3" },
+  { name: 'NFL', iconName: 'iconCargador', speed: "0.5", idcategory: "4" },
 ];
+
 
 function FiltroCards() {
 
@@ -86,16 +88,24 @@ useEffect(() => {
     <div className={sFilter.filtroContainer}>
       <span className={sFilter.logoFilter}><IconoWebp name={'westsideLogo'} /></span>
       <div className={sFilter.filtroHeader}>
-        <h1 className={sFilter.nameFilter}>{nameFilter}</h1>
-
+        <h1 className={sFilter.nameFilter} onClick={() => setIsAcordeonVisible(prev => !prev)}>
+          {nameFilter}
+          <Flecha
+            style={{
+              transform: `rotate(${isAcordeonVisible ? 270 : 90}deg) scale(0.45)`,
+              margin: 0,
+              transition: "transform 0.4s ease"
+            }}
+          />
+        </h1>
         <div
           className={`${sFilter.clickable} ${isAcordeonVisible ? sFilter.active : sFilter.inactive}`}
           onClick={() => setIsAcordeonVisible(prev => !prev)}
         >
           {isAcordeonVisible ? (
-            <IconoWebp name="iconXgrafiti" className={`${sFilter.icon} ${sFilter.activeIcon}`} />
+            <IconoWebp name="iconXgrafiti" style={{ transform: "scale(0.5)" }} className={`${sFilter.icon} ${sFilter.activeIcon}`} />
           ) : (
-            <IconoWebp name="iconAjustesFilter" className={`${sFilter.icon} ${sFilter.inactiveIcon}`} />
+            <IconoWebp name="iconAjustesFilter" style={{ transform: "scale(0.45)" }}  className={`${sFilter.icon} ${sFilter.inactiveIcon}`} />
           )}
         </div>
         {isAcordeonVisible && (
@@ -107,15 +117,20 @@ useEffect(() => {
               {categoriesFilCards.map(({ idcategory, iconName, name, speed }) => (
                 <div
                   key={idcategory}
-                  className={`${sFilter.acordeon} ${filter === idcategory ? sFilter.acordeonActivo : ''}`}
+                  className={sFilter.acordeon}
                   onClick={() => handlerClick(idcategory)}
                   role="button"
                   tabIndex={0}
                 >
-                  <div className={sFilter.icon}>
-                    <IconoWebp name={iconName} speed={speed} />
+                  <div className={`${sFilter.icon} ${filter === idcategory ? sFilter.iconActivo : ''}`}>
+                    <IconoWebp name={iconName} speed={speed}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
                   </div>
-                  <div className={sFilter.name}>{name}</div>
+                  <div className={`${sFilter.name} ${filter === idcategory ? sFilter.nameActivo : ''}`}>{name}</div>
                 </div>
               ))}
             </section>
@@ -124,12 +139,13 @@ useEffect(() => {
             <button className={sFilter.boxMostrarOrden}
               onClick={() => setShowOrderOptions(prev => !prev)}>
               <span className={sFilter.btnMostrarItems}>Clasificar</span>
-
-              <IconoWebp className={sFilter.iconFlecha} style={{
-                display: 'inline-block',
-                transition: 'transform 1s ease',
-                transform: showOrderOptions ? '' : 'rotate(270deg)',
-              }} name={'iconFlecha'} />
+              <Flecha
+                style={{
+                  transform: `rotate(${showOrderOptions ? 270 : 90}deg) scale(0.45)`,
+                  margin: 0,
+                  transition: "transform 0.4s ease"
+                }}
+              />
             </button>
 
             {/* Radios solo se muestran si showOrderOptions es true */}

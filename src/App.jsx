@@ -34,6 +34,11 @@ function App() {
   return (
     <div className={s.headerApp} translate="no">
       <Suspense fallback={<Loader />}>
+          <div className={s.marqueeContainer}>
+      <span className={s.marqueeText}>
+        Este es el texto que se desplaza infinitamente por la parte superior
+      </span>
+    </div>
         <NavLinks />
         <ScrollRestoration />
         <Routes>

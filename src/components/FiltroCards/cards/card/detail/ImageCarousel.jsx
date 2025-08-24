@@ -5,6 +5,7 @@ import X from "../../../../Icons/x";
 const ImageCarousel = ({ images = [] }) => {
     const apibase = import.meta.env.VITE_API_URL_BaseD;
 const [currentIndex, setCurrentIndex] = useState(0);
+console.log(images);
 
   // if (images[0]?.alt) {
   //   console.log(`${images[currentIndex]?.alt}`);

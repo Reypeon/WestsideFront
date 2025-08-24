@@ -62,28 +62,10 @@
     background-color: transparent;
     padding: 0 0.5rem;
     border: none;
-      transition: transform 0.3s ease;
-}/* Estado activo del botón */
-.active {
-  transform: scale(0.7);
 }
 
-/* Estado inactivo del botón */
-.inactive {
-  transform: scale(0.5);
-}
 
-.icon {
-  transition: transform 0.3s ease;
-}
 
-.activeIcon {
-  transform: rotate(5deg);
-}
-
-.inactiveIcon {
-  transform: rotate(0deg);
-}
 .boxFiltrosAjustes{
     display: flex;
     position: fixed;
@@ -120,12 +102,11 @@
     position: relative;
     background-color: transparent;
     z-index: 10;
-    min-height: 20%;
-    height: 15rem;
     padding: 0.5rem;
     top: 1;
     left: 0.5rem;
     overflow-x: auto;
+
 }
 
 .acordeon {
@@ -135,28 +116,28 @@
     overflow: hidden;
     min-width: 13rem;
     width: 25vh;
+min-height: 12rem;
+max-height: 12rem;
     margin-right: 0.5rem;
     text-shadow: none;
     border: none;
     border-radius: 15px;
-  transition: transform 0.2s, background-color 0.2s ease;
-  
 }
-.acordeonActivo {
-  /* background-color: var(--colorv1); */
-}
-/* .acordeon .icon:hover {
-    transform: scale(95%);
-} */
-.acordeon .icon {
+
+
+.icon {
     display: flex;
-    width: 100%;
     margin: 0;
     padding: 0;
     overflow: visible;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+      filter: brightness(0.4);
+      transition: filter 0.4s ease;
+}
+.iconActivo {
+    filter: brightness(0.8);
 }
 /* 
 .acordeon .icon::after {
@@ -176,25 +157,33 @@
   );
 } */
 
-.acordeon .name {
+ .name {
+  display: flex;
   position: absolute;
-  bottom: 0.5rem;
-  width: auto;
-    color: var(--blanco);
-    align-content: center;
-    justify-content: start;
-    min-height: 18%;
-    max-height: 18%;
-    font-size: 2vh;
-    padding-left: 1rem;
-  font-weight: 500;
-    overflow: visible;
-    font-family: var(--font1);
-    flex-wrap: nowrap;
-    line-height: 1;
+  color: var(--blanco);
+  text-align: center;
+  justify-content: center;
+  height: 20%;
+  min-width: 13rem;
+  width: 25vh;  top: 70%;
+  font-family: 'miFuentePersonalizada3';
+  line-height: 1;
+  letter-spacing: 2px;
+  background: transparent;
+  z-index: 20;
+  font-size: clamp(3rem, 2vw, 4vh);
+  -webkit-text-stroke: 1px var(--negro); 
+  text-stroke: 1px var(--negro); 
+  text-shadow: 
+    4px 4px 4px var(--negro),
+    -4px -4px 4px var(--negro);
+          filter: brightness(0.8);
+      transition: filter 0.4s ease;
 }
 
-
+.nameActivo{
+    filter: brightness(1);
+}
 
 .boxMostrarOrden{
   display: flex;
@@ -216,9 +205,7 @@
   flex: 1;
 
 }
-.boxMostrarOrden .iconFlecha{
-  transform: rotate(90deg);
-}
+
 
 
 .radioGroup {
